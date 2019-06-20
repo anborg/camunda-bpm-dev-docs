@@ -1,0 +1,200 @@
+# Patch Release Procedure
+
+The release procedure has 2 phases:
+
+## Phase 1: Prepare the Release
+
+- [ ] [Check Preconditions](#check-preconditions)
+- [ ] [Close the Branch](#close-the-branch)
+- [ ] [Trigger the release build](#trigger-the-release-build)
+- [ ] [Update the Enterprise Download Page](#update-the-enterprise-download-page)
+- [ ] [Test the Release Build](#test-the-release-build)
+- [ ] [Unblock the Branch](#unblock-the-branch)
+- [ ] [Release Javadocs](https://github.com/camunda/camunda-bpm-platform/wiki/Performing-an-Alpha-Release#release-javadocs)
+
+## Phase 2: Publish the Release
+
+- [ ] [Release the Patch Version in JIRA](#release-the-patch-version-in-jira)
+- [ ] [Forward Security Reports](#forward-security-reports)
+- [ ] [Publish the Enterprise Page](#publish-the-enterprise-page)
+- [ ] [Inform EE Customer (Mailchimp)](#inform-ee-customers)
+- [ ] [Close JIRA Tickets in Backlog](#close-jira-tickets-in-backlog)
+- [ ] [Improve this guide](#improve-this-guide) (*)
+
+## Check Preconditions
+
+- There are no code problems ([check ci](https://ci.cambpm.camunda.cloud/view/all/job/7.7/view/Broken/) - replace the version in path with the appropriate one)
+- There are no code tickets in review or test
+
+## Close the Branch
+
+```
+Hi Team,
+
+please stop pushing to the 7.7 branch since we are going to build a patch release.
+```
+
+## Trigger the Release Build
+
+Use the following confluence page to select the appropriate link to the Jenkins CI job
+
+https://app.camunda.com/confluence/pages/viewpage.action?pageId=16583012
+
+Click on the "Run" icon. Make sure to set the configuration to something like:
+
+```
+BRANCH:              7.7
+DEVELOPMENT_VERSION: 7.7.2-SNAPSHOT
+RELEASE_VERSION:     7.7.1
+PUSH_REMOTE:         true
+SKIP_TESTS:          true
+SKIP_DEPLOY:         false
+OVERRIDE_TAG:        false
+```
+
+Click Build. 
+Wait for the following jobs to turn green before continuing with the next step:
+* 7.7-RELEASE-build-camunda-bpm-maintenance-tags
+
+## Update the Enterprise Download Page
+
+Add the latest release to the following page [`camunda-docs-static/enterprise/content/download.md`](https://github.com/camunda/camunda-docs-static/blob/master/enterprise/content/download.md).
+
+All releases are handled as HUGO page variables in the document header. Add the release in the following format:
+
+```
+  branches:
+  - branch: "7.7.1"
+    releases:
+    - number: "7.7.1"
+      note: "https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=14896"
+      date: "2017.07.11"
+```
+
+Commit the changes and build the enterprise page:
+
+```
+git commit -m "chore(download): add 7.7.1 to download page"
+
+git push origin master
+```
+
+Review your commit on http://stage.docs.camunda.org/enterprise/download/
+
+
+## Test the Release Build
+
+For each application server one developer should perform a test. Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
+
+### Standard Regression Test
+1. Download the release artifact from the enterprise download page
+2. Combine the platform with a database of choice.
+3. Start the platform  
+3.1 Check the server log that no exceptions occur  
+4. Open Admin  
+4.1 Check if the dashboard and main menu contain the sections 'Users', 'Groups', 'Tenants', 'Authorizations', 'System'  
+4.2 Add a license key to the platform  
+4.3 Add a new User  
+4.4 Asign the new user to a group  
+4.5 Provide access authorization for Cockpit to the new user  
+5. Open Tasklist  
+5.1 Start a new invoice process  
+5.2 Walk through the invoice process step by step  
+5.3 Create a new filter with a meaningful filter criteria  
+5.4 Check the results of the filter  
+5.5 Delete the filter  
+6. Open Cockpit  
+6.1 Use the dashboard search plugin to find all finished invoice instances (There should be at least one)  
+6.2 Open the historic instance view and check if all information is provided correctly ('Audit Log', 'Variables', 'Called Process Instances', 'Called Case Instances', 'Executed Decision Instances', 'Incidents', 'User Tasks', 'Job Log', 'External Tasks Log')  
+6.3 Migrate all instances from the invoice process version 1 to version 2  
+6.4 Use the dashboard search plugin to find all instances started after a certain date  
+6.5 Cancel these instances by using the batch operations  
+6.6 Select a process instance and go to the process instance view  
+6.7 Perform a process instance modification  
+6.8 Add a variable to the process instance  
+
+### Release Specific Test
+According to the implemented bug fixes choose some of the fixes to test them manually. 
+If you don't know wich fixes are worth the effort use the following rule of thumb: 
+* Prefer UI fixes as the test coverage is usually lower compared to backend fixes. Use different browser for the test.
+* Prefer fixes related to customer support issues as our customers expect that these fixes are working correctly.
+* Prefer fixes that came from critical or blocking bug reports
+
+## Unblock the Branch
+
+If everything is satisfying with the release, send an email to camundabpm@camunda.com:
+
+```
+Hi Team,
+
+the release test passed, you can commit the 7.7 branch again :)
+
+```
+
+## Release the Patch Version in JIRA
+
+Select the released version in JIRA ```Projects/camunda bpmn/versions``` click Release and enter the release date.
+
+On this page you will find the link to the JIRA release notes.
+
+
+# Forward Security Reports
+
+Determine all security reports for which fixes have are released and forward them to 1) Thorben 2) Roman. They will then take care of publishing security notices. Find all such issues with the following JIRA query:
+
+```
+project = CAM AND fixVersion = <released version> AND type = "Security Report"
+```
+
+
+## Publish the Enterprise Page
+
+Once the release test has been done, release the enterprise docs by triggering the following build:
+https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(enterprise)/
+
+
+## Inform EE Customers
+
+Find a detailed instruction in confluence: https://app.camunda.com/confluence/display/camBPM/Publish+an+Enterprise+Release+Notification+on+Mailchimp
+
+## Release the Community Download Page
+
+Sources are here: https://github.com/camunda/camunda.com-new/live
+
+#### 1. Update ee section in [releases.json](https://github.com/camunda/camunda.com-new/blob/live/data/releases.json) 
+
+#### 2. Push it on `live`
+```
+git commit -am "chore(download): 7.7.1 released"
+git push origin live
+```
+
+#### 3. Check the jenkins build at https://app.camunda.com/jenkins/view/All/job/camunda.com-new%20(live)/
+
+#### 4. Check the result at http://camunda.com/
+
+## Twitter
+
+Let Ganesh know that a new release is available by sending her the following email (Please **CC Daniel**):
+
+```
+Hi Ganesh,
+
+we have published a new patch release:
+
+* The version is 7.7.1.
+* Use the hash tag #EErelease 
+
+Best,
+XX
+```
+
+## Close JIRA Tickets in Backlog
+
+This is a task for the first level support.
+
+## Improve this Guide
+
+If you noticed any errors in the guides, any steps that were left out, please edit this document and keep it up to date.
+
+Note: For the version numbers used here it is ok to leave older versions in.
