@@ -93,7 +93,7 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
 ## Adjust and migrate Getting Started guides
       
 Follow the procedure here:
-https://github.com/camunda/camunda-bpm-platform/wiki/Getting-started-guides
+https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Getting-started-guides.md
 
 Keep in mind that the platform version in the `pom.xml` files should be adjusted only for testing. Only commit changes that are needed for the Guides to be functional. The platform version will be permanently adjusted through a Jenkins job at a later phase of the Release process.
 
