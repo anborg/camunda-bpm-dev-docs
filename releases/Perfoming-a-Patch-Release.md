@@ -154,7 +154,8 @@ https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(e
 
 ## Inform the Support Team
 
-[RELEASE-NOTICE] Camunda BPM Patch Release XXX
+Mail to team-support@camunda.com
+Subject: [RELEASE-NOTICE] Camunda BPM Patch Release XXX
 ```
 Hi Support,
 
