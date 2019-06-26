@@ -153,6 +153,8 @@ https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(e
 
 
 ## Inform the Support Team
+Add information about the each patch release accroding to this page
+https://app.camunda.com/confluence/display/SUP/Support+Services
 
 Mail to team-support@camunda.com
 Subject: [RELEASE-NOTICE] Camunda BPM Patch Release XXX
