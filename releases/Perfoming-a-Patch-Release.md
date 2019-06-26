@@ -163,7 +163,7 @@ Hi Support,
 
 we have published the following patch release(s):
 
-* X.X.X
+* X.X.X  (Version + Release Note)
 
 Best,
 XX
