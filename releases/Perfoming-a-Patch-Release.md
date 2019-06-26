@@ -132,12 +132,12 @@ the release test passed, you can commit the 7.7 branch again :)
 
 ## Release the Patch Version in JIRA
 
-Select the released version in JIRA ```Projects/camunda bpmn/versions``` click Release and enter the release date.
+Select the released version in [JIRA](https://app.camunda.com/jira/browse/CAM?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel&subset=-1)  click Release and enter the release date.
 
 On this page you will find the link to the JIRA release notes.
 
 
-# Forward Security Reports
+## Forward Security Reports
 
 Determine all security reports for which fixes have are released and forward them to 1) Thorben 2) Roman. They will then take care of publishing security notices. Find all such issues with the following JIRA query:
 
