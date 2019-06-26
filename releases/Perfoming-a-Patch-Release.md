@@ -16,9 +16,8 @@ The release procedure has 2 phases:
 
 - [ ] [Release the Patch Version in JIRA](#release-the-patch-version-in-jira)
 - [ ] [Forward Security Reports](#forward-security-reports)
-- [ ] [Publish the Enterprise Page](#publish-the-enterprise-page)
-- [ ] [Inform EE Customer (Mailchimp)](#inform-ee-customers)
-- [ ] [Close JIRA Tickets in Backlog](#close-jira-tickets-in-backlog)
+- [ ] [Publish the Enterprise Download Page](#publish-the-enterprise-download-page)
+- [ ] [Inform the Support Team](#inform-the-support-team)
 - [ ] [Improve this guide](#improve-this-guide) (*)
 
 ## Check Preconditions
@@ -147,51 +146,25 @@ project = CAM AND fixVersion = <released version> AND type = "Security Report"
 ```
 
 
-## Publish the Enterprise Page
+## Publish the Enterprise Download Page
 
 Once the release test has been done, release the enterprise docs by triggering the following build:
 https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(enterprise)/
 
 
-## Inform EE Customers
+## Inform the Support Team
 
-Find a detailed instruction in confluence: https://app.camunda.com/confluence/display/camBPM/Publish+an+Enterprise+Release+Notification+on+Mailchimp
-
-## Release the Community Download Page
-
-Sources are here: https://github.com/camunda/camunda.com-new/live
-
-#### 1. Update ee section in [releases.json](https://github.com/camunda/camunda.com-new/blob/live/data/releases.json) 
-
-#### 2. Push it on `live`
+[RELEASE-NOTICE] Camunda BPM Patch Release XXX
 ```
-git commit -am "chore(download): 7.7.1 released"
-git push origin live
-```
+Hi Support,
 
-#### 3. Check the jenkins build at https://app.camunda.com/jenkins/view/All/job/camunda.com-new%20(live)/
+we have published the following patch release(s):
 
-#### 4. Check the result at http://camunda.com/
-
-## Twitter
-
-Let Ganesh know that a new release is available by sending her the following email (Please **CC Daniel**):
-
-```
-Hi Ganesh,
-
-we have published a new patch release:
-
-* The version is 7.7.1.
-* Use the hash tag #EErelease 
+* X.X.X
 
 Best,
 XX
 ```
-
-## Close JIRA Tickets in Backlog
-
-This is a task for the first level support.
 
 ## Improve this Guide
 
