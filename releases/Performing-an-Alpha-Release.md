@@ -505,7 +505,7 @@ Cheers,
 
 You will receive a test email that needs to be approved.
 
-⚠️ If you receive an OOF notification, you can ask Michael from QA to send the email.
+⚠️ If you receive an Out of Office notification, you can ask Michael from QA to send the email.
 
 # Twitter
 
