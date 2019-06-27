@@ -488,9 +488,24 @@ https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(e
 
 # Inform EE Customer (Mailchimp)
 
-Notify Ilias Kourtoudis, that a new alpha has been released.
+Let the Support Team know that a new release is available by sending the following email to the support team:
 
-Find a detailed instruction in confluence how to publish an enterprise release notification: https://app.camunda.com/confluence/display/camBPM/Publish+an+Enterprise+Release+Notification+on+Mailchimp
+```
+Hi Support Team,
+
+we have published a new alpha release of Camunda BPM:
+
+* The version is 7.12.0-alpha1
+* The link to the blogpost is https://blog.camunda.com/post/2019/06/camunda-bpm-7120-alpha1-released/
+* The link to the release notes is https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=15494
+
+Cheers,
+
+```
+
+You will receive a test email that needs to be approved.
+
+⚠️ If you receive an OOF notification, you can ask Michael from QA to send the email.
 
 # Twitter
 
