@@ -53,7 +53,7 @@ The commercial license header must be setup explicitly for each ee subproject of
  * You may not use this file except in compliance with the commercial license.
  */
  ```
-![eclipse-settings][img/eclipse-project-settings.png]
+![eclipse-settings](img/eclipse-project-settings.png)
 
 ## IntelliJ IDE
 
