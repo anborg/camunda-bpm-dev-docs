@@ -91,9 +91,9 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
   - If there is an environment missing, ask SRE to provide it.
 
 ## Adjust and migrate Getting Started guides
-
+      
 Follow the procedure here:
-https://github.com/camunda/camunda-bpm-platform/wiki/Getting-started-guides
+https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Getting-started-guides.md
 
 Keep in mind that the platform version in the `pom.xml` files should be adjusted only for testing. Only commit changes that are needed for the Guides to be functional. The platform version will be permanently adjusted through a Jenkins job at a later phase of the Release process.
 
@@ -492,24 +492,24 @@ Perform the following edits:
 +++ b/config/live/.htaccess
 @@ -8,31 +8,31 @@ RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=301,L]
  RewriteRule ^$ /manual/
-
-
+ 
+ 
  # Javadoc
 -RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L] # live doesn't have -SNAPSHOT
 +RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
  RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
-
+ 
  # manual without version
 -RewriteRule ^manual/?$ /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/?$ /manual/7.12/ [R=307,L]
-
+ 
 -RewriteCond %{REQUEST_URI} ^/manual((?!7.10/)[^/]+)
 +RewriteCond %{REQUEST_URI} ^/manual((?!7.11/)[^/]+)
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteRule ^manual/(.*) /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/(.*) /manual/7.12/ [R=307,L]
-
+ 
 - # Redirect /manual/X to /manual/7.11/X if folder X does not exist but 7.10/X does
 -RewriteCond %{REQUEST_URI} ^/manual/((?!7.10/)[^/]+)
 + # Redirect /manual/X to /manual/7.12/X if folder X does not exist but 7.11/X does
@@ -519,7 +519,7 @@ Perform the following edits:
 -RewriteRule ^manual/(.*) /manual/7.11/$1 [R=307,L]
 +RewriteCond %{DOCUMENT_ROOT}/manual/7.12/%1 -d
 +RewriteRule ^manual/(.*) /manual/7.12/$1 [R=307,L]
-
+ 
 -# Redirect /manual/X/Y to /manual/7.11/Y if folder X does not exist but 7.10/Y does
 -RewriteCond %{REQUEST_URI} ^/manual/((?!7.11/?)[^/]+)(/[^/]+)?
 +# Redirect /manual/X/Y to /manual/7.12/Y if folder X does not exist but 7.11/Y does
@@ -531,11 +531,7 @@ Perform the following edits:
 +RewriteRule ^manual/[^/]+(/[^/]+(?:/.*))? /manual/7.12$1 [R=307,L]
 ```
 
-Adjust the test that checks if the redirects are correct. All version-specific redirects should now
-point to the new released version, e.g. docs.camunda.org/manual should now redirect to docs.camunda.org/manual/7.12.
-See https://github.com/camunda/camunda-docs-static/commit/876506091f862d842a2fdb8af09254138b43764b#diff-efdd7d3b4b058c9b5c32a631cc9b1c05 for how to update the test.
-
-Commit and push to branch:
+commit and push to branch:
 
 ```sh
 git commit -am "chore(release): set 7.12 as default version"
@@ -621,7 +617,7 @@ git push origin master
 Repository: [camunda.com-new](https://github.com/camunda/camunda.com-new)
 You need to adjust [releases.json](https://github.com/camunda/camunda.com-new/blob/master/data/releases.json) and check your change on [stage](https://app.camunda.com/jenkins/view/All/job/stage.camunda.com-new%20(master)/).
 
-Note: "showAlpha" must be set to false when releasing minor
+Note: "showAlpha" must be set to false when releasing minor 
 
 -----
 
@@ -651,15 +647,15 @@ We have several CI jobs which upload artifacts to Maven Central into their stagi
 2. On the left side, click on the 'Staging Repositories' link.
 3. After it has been loaded, scroll down to the bottom of the list. You should find the relevant Camunda staging repositories there.
 4. Mark each repository you want to release.
+    
+    *For Example:*  
 
-    *For Example:*
-
-    >org.camunda.bpm:camunda-bom:7.12.0
-    >org.camunda.bpm.webapp:camunda-webapp:7.12.0
-    >org.camunda.bpm.model:camunda-bpmn-model:7.12.0
-    >org.camunda.bpm.model:camunda-dmn-model:7.12.0
-    >org.camunda.bpm.model:camunda-cmmn-model:7.12.0
-    >org.camunda.bpm.dmn:camunda-engine-dmn-bom:7.12.0
+    >org.camunda.bpm:camunda-bom:7.12.0  
+    >org.camunda.bpm.webapp:camunda-webapp:7.12.0  
+    >org.camunda.bpm.model:camunda-bpmn-model:7.12.0  
+    >org.camunda.bpm.model:camunda-dmn-model:7.12.0  
+    >org.camunda.bpm.model:camunda-cmmn-model:7.12.0  
+    >org.camunda.bpm.dmn:camunda-engine-dmn-bom:7.12.0  
     >org.camunda.bpm.model:camunda-xml-model:7.12.0
 
 5. Click on 'Release' at the menu on top of the list. A window will pop up were you can enter a description but it is not necessary. Activate 'Drop repository after release automatically'. Then proceed.
@@ -734,10 +730,10 @@ git push -f origin latest
 
 * The content will be published to http://stage.docs.camunda.org/manual/latest/
 
-* Make sure, that [this](https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-manual-stage%20(latest,%20latest)/) build has already been triggered and successfully passed through.
+* Make sure, that [this](https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-manual-stage%20(latest,%20latest)/) build has already been triggered and successfully passed through.  
 
 * Once the release is staged there, release it by triggering the following build:
-[camunda docs release](https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(manual-latest)/)
+[camunda docs release](https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(manual-latest)/)   
 
 * Now the new content is available in http://docs.camunda.org/manual/latest/
 
@@ -789,7 +785,7 @@ https://cse.google.com/cse/setup/basic?cx=007121298374582869478:yaec0vxmc7e
 
 Sources are here: https://github.com/camunda/camunda.com-new/live
 
-#### 1. Update ee and ce sections in [releases.json](https://github.com/camunda/camunda.com-new/blob/live/data/releases.json)
+#### 1. Update ee and ce sections in [releases.json](https://github.com/camunda/camunda.com-new/blob/live/data/releases.json) 
 
 #### 2. Push it on `live`
 ```
@@ -803,7 +799,7 @@ git push origin live
 
 ## Release the Blog Post
 
-1. Before you publish it ensure that the `camunda.org` [download page](https://camunda.org/download/) is up to date. Note: The title of the blogpost must be in the following format: Camunda 7.12.0 released.
+1. Before you publish it ensure that the `camunda.org` [download page](https://camunda.org/download/) is up to date. Note: The title of the blogpost must be in the following format: Camunda 7.12.0 released.   
 2. Publish the blog post by merging the branch with the master:
 
 ```
@@ -840,12 +836,12 @@ Talk to Support (Ilias) or Michael to send the mailings.
 
 Announce the release in https://forum.camunda.org by posting in the Announcements category linking to the blogpost (adapt elements in bold):
 
-> Title: Camunda BPM **7.12.0** released
-> Category: Announcements
-> Text:
+> Title: Camunda BPM **7.12.0** released   
+> Category: Announcements   
+> Text:   
 > Hi all,
->
-> Camunda BPM **7.12.0** has been released today.
+>   
+> Camunda BPM **7.12.0** has been released today.   
 > Read all about it on our blog: **https://blog.camunda.org/post/2019/11/camunda-bpm-7120-released/**.
 
 ## Improve this Guide
@@ -879,8 +875,8 @@ Update the `camunda.version.old` property in:
 
 to the previous minor version.
 
-If the minor release includes a new commons release, update the `version.old` properties in [camunda/camunda-commons][typed-values-pom].
-If the minor release includes a new spin release, update the `spin.version.old` properties in [camunda/camunda-spin][spin-pom].
+If the minor release includes a new commons release, update the `version.old` properties in [camunda/camunda-commons][typed-values-pom].  
+If the minor release includes a new spin release, update the `spin.version.old` properties in [camunda/camunda-spin][spin-pom].  
 If the minor release includes a new connect release, update the `connect.version.old` properties in [camunda/camunda-connect][connect-pom].
 
 Update the `camunda.version` property in:
