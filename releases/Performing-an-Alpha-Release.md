@@ -164,23 +164,23 @@ For each application server one developer should perform a test. Download the re
 1. Download the release artifact from the enterprise download page
 2. Combine the platform with a database of choice.
 3. Start the platform
-3.1 Check the server log that no exceptions occur
+    1. Check the server log that no exceptions occur
 4. Open Admin
-4.1 Check if the dashboard and main menu contain the sections 'Users', 'Groups', 'Tenants', 'Authorizations', 'System'
-4.2 Add a license key to the platform
+    1. Check if the dashboard and main menu contain the sections 'Users', 'Groups', 'Tenants', 'Authorizations', 'System'
+    2. Add a license key to the platform
 5. Open Tasklist
-5.1 Start a new invoice process
-5.2 Walk through the invoice process step by step
+    1. Start a new invoice process
+    2. Walk through the invoice process step by step
 6. Open Cockpit
-6.1 Use the dashboard search plugin to find all finished invoice instances (There should be at least one)
-6.2 Go to the runtime instance view of the invoice showcase
-6.2 Switch to the history view
-6.3 Migrate all instances from the invoice process version 1 to version 2
-6.4 Use the dashboard search plugin to find all instances started after a certain date
-6.5 Cancel these instances by using the batch operations
-6.6 Select a process instance and go to the process instance view
-6.7 Perform a process instance modification
-6.8 Add a variable to the process instance
+    1. Use the dashboard search plugin to find all finished invoice instances (There should be at least one)
+    2. Go to the runtime instance view of the invoice showcase
+    3. Switch to the history view
+    4. Migrate all instances from the invoice process version 1 to version 2
+    5. Use the dashboard search plugin to find all instances started after a certain date
+    6. Cancel these instances by using the batch operations
+    7. Select a process instance and go to the process instance view
+    8. Perform a process instance modification
+    9. Add a variable to the process instance
 
 #### Testing with Spring Boot
 Use the spring-boot-example [example webapp ee](https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-webapp-ee) as test scenario.
