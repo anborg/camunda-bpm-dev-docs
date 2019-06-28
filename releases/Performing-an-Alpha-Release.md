@@ -489,7 +489,7 @@ https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(e
 
 # Inform EE Customer (Mailchimp)
 
-Let the Support Team know that a new release is available by sending the following email to the support team (there exists a team email):
+Let the Support Team know that a new release is available by sending the following email to team-support@camunda.com:
 
 ```
 Hi Support Team,
