@@ -16,7 +16,7 @@
 * Bracket placement: [Kernighan and Ritchie style](https://en.wikipedia.org/wiki/Indentation_style#K&R_style) ("Egyptian brackets") for nonempty blocks and block-like constructs; plus: opening brackets of classes and methods go on the same line as the declaration
 ```java
 return new MyClass() {
-  @Override 
+  @Override
   public void method() {
     if (condition()) {
       try {
@@ -67,6 +67,10 @@ return new MyClass() {
 * Import order consistent for all IDEs
 * Everyone should commit the same line endings
 * Consistent placement of new lines of a source file
+
+### Comments
+
+* Do not push `TODO` or `FIXME` comments to master. Instead, either fix it immediately or create a JIRA issue that describes the user impact.
 
 ## Best Practices:
 
