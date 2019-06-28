@@ -64,11 +64,8 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 
 Goal: Prepare a blogpost skeleton on a remote branch, such that your colleagues can contribute their sections.
 
-#### 1. Decide on Content
 
-Select four to five significant new features/fixes to be described in more detail. You can validate the choice with Thorben. Ask your colleagues to contribute sections for the features they have built.
-
-#### 2. Update the 'master' and create a branch 7.9.0-alpha3 on the [blog repository](https://github.com/camunda/blog.camunda.org).
+#### 1. Update the 'master' and create a branch 7.9.0-alpha3 on the [blog repository](https://github.com/camunda/blog.camunda.org).
 
 ```
 git checkout master
@@ -76,7 +73,7 @@ git pull origin master
 git checkout -b 7.9.0-alpha3
 ```
 
-#### 3. Create a file 'camunda-bpm-790-alpha3-released.md' at /content/post/2017/07/ and push it to the repo.
+#### 2. Create a file 'camunda-bpm-790-alpha3-released.md' at /content/post/2017/07/ and push it to the repo.
 
 It should contain an introduction (feature overview, release notes, download encouragement) and conclusion (feedback encouragement, outlook). You can use the blogpost of the last alpha release as a blueprint.
 
@@ -85,6 +82,10 @@ git add /content/post/2017/07/camunda-bpm-790-alpha3-released.md
 git commit
 git push origin 7.9.0-alpha3
 ```
+
+#### 3. Encourage Content
+
+Ask your colleagues to contribute content for any noteworthy features they have implemented.
 
 # Check Preconditions
 
