@@ -40,6 +40,8 @@ The repositories licensed under a commercial license are:
 The default license header (Apache 2.0) is setup when the [code templates](https://github.com/camunda/camunda-bpm-platform/tree/master/settings/eclipse)
 are imported in Eclipse.
 
+(`TODO:` create code template for ee projects once we updated the current code template with the new code style rules.)
+
 The commercial license header must be setup explicitly for each ee subproject of camunda-bpm-platform-ee, perform the following steps:
 1. Select the project. (for example `camunda-webapp-ee-plugins`)
 2. Open its `Properties`.
