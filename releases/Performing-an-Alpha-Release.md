@@ -520,7 +520,7 @@ we have published a new alpha release:
 * The version is 7.9.0-alpha3.
 * The link to the blogpost is https://blog.camunda.org/post/2017/07/camunda-bpm-790-alpha3-released
 * The most noteworthy thing about this release is "Support for BPMN Conditional Events"
-* We propose to include the following image (XX Link) in the tweet.
+* We propose to include the following image (XX Link)
 
 Cheers,
 XX
