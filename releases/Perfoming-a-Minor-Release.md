@@ -10,9 +10,9 @@ TL = Tech Lead (Thorben Lindhauer)
 
 QA = Michael Schöttes
 
-MKT = Marketing (Charley Mann)
+MKT = marketing@camunda.com
 
-SUP = Support (Ilias Kourtoudis)
+SUP = team-support@camunda.com
 
 SRE = sre@camunda.com
 
@@ -809,10 +809,10 @@ git merge 7.12.0
 
 ## Publish the release on Twitter
 
-Let Marketing (Charley) know that a new release is available by sending her the following email (Please **CC Daniel, Roman**):
+Let MKT know that a new release is available by sending her the following email (Please **CC Daniel, Roman**):
 
 ```
-Hi Charley,
+Hi Marketing team,
 
 we have published a new minor release:
 
@@ -830,7 +830,7 @@ If you get an out of office reply, tweet yourself by logging into the Camunda BP
 
 ## Send mailings
 
-Talk to Support (Ilias) or Michael to send the mailings.
+Send an email to SUP to send the mailings.
 
 ## Forum Announcement
 
