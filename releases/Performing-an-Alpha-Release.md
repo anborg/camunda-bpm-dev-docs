@@ -20,7 +20,7 @@ Steps:
 - [ ] [Release the blogpost](#release-the-blogpost) (TL, *)
 - [ ] [Publish the Enterprise Page](#publish-the-enterprise-page) (*)
 - [ ] [Inform EE Customers (Mailchimp)](#inform-ee-customer-mailchimp) (IK, MS, TL)
-- [ ] [Twitter](#twitter) (*, CM)
+- [ ] [Social Media Announcements](#social-media-announcements) (*, CM)
 - [ ] [Forum Announcement](#forum) (*)
 - [ ] [Improve this guide](#improve-this-guide) (*)
 - [ ] [Celebrate the release](#celebrate-the-release) (*)
@@ -508,12 +508,12 @@ You will receive a test email that needs to be approved.
 
 ⚠️ If you receive an Out of Office notification, you can ask Michael from QA to send the email.
 
-# Twitter
+# Social Media Announcements
 
-Let Charley know that a new release is available by sending her the following email (Please **CC Daniel**):
+Let marketing know that a new release is available by sending the following email to marketing@camunda.com:
 
 ```
-Hi Charley,
+Hi Marketing Team,
 
 we have published a new alpha release:
 
@@ -522,13 +522,11 @@ we have published a new alpha release:
 * The most noteworthy thing about this release is "Support for BPMN Conditional Events"
 * We propose to include the following image (XX Link) in the tweet.
 
-Best,
+Cheers,
 XX
 ```
-(Also See: https://app.camunda.com/confluence/display/MAR/Internal+Social+Media+Posting+Process)
 
-If you get an out of office reply, tweet yourself by logging into the Camunda BPM Twitter account.
-
+⚠️ If you receive no answer or an Out of Office notification, you can directly approach Gottfried from Marketing.
 
 # Forum
 
