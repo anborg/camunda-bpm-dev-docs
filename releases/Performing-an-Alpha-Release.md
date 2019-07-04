@@ -50,11 +50,11 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 > Audience: camundabpm@camunda.com
 
 ## **Code Freeze camunda BPM 7.9.0-alpha3**
-> 🕔  in the evening of the day before the build will take place until its end.
+> 🕔  in the evening of the day before the build will take place until its end. If the release presentation is on Friday, the code freeze can be scheduled for Wednesday evening.
 > Audience: camundabpm@camunda.com
 
 ## **Build camunda BPM 7.9.0-alpha3**
-> 🕗  as the duration of the build lasts at least two hours, make sure to start it in the evening before the release and keep in mind that it might fail. Make sure you have no other appointments on the day of the release.
+> 🕗  as the duration of the build lasts at least two hours, make sure to trigger it early in the morning after the code freeze and keep in mind that it might fail. Make sure you have no other appointments on the day of the release.
 > Audience: camundabpm@camunda.com, sre@camunda.com
 
 ## **Celebrate camunda BPM 7.9.0-alpha3**
