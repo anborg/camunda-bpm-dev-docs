@@ -46,7 +46,7 @@ Note: Do this after the platform artifacts are released or together with them
 
 We have several CI jobs which upload artifacts to Maven Central into their staging repository section. In order to make them publicly available, we need to manually close the staging repositories and release the artifacts.
 
-* Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Accounts)
+* Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Maven+Central+Release)
 * On the left side, click on the 'Staging Repositories' link.
 * After it has been loaded, scroll down to the bottom of the list. You should find the relevant Camunda staging repositories there.
 
@@ -88,7 +88,7 @@ For sideprojects, a version adjustment must be performed, example: https://githu
 
 3.  Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.1 version](https://github.com/camunda/camunda-bpm-platform/commit/282a79ec000216e22af07fb86442340ad7b891e2)
 4. Release Maven Central - We have several CI jobs which upload artifacts to Maven Central into their staging repository section. In order to make them publicly available, we need to manually close the staging repositories and release the artifacts.
-    * Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Accounts)
+    * Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Maven+Central+Release)
     * On the left side, click on the 'Staging Repositories' link.
     * After it has been loaded, scroll down to the bottom of the list. You should find the relevant Camunda staging repositories there.
     *For Example:*  
