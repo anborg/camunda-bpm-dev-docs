@@ -155,7 +155,6 @@ git push origin 7.12.0
 
 **Hint:**
 When releasing a secondary project, other secondary projects might have cross-references to it and you should update them accordingly. E.g., for camunda-commons you need to update the `pom.xml` files of the following projects as well:
-* dmn-engine
 * spin
 * connect
 * engine
@@ -858,7 +857,7 @@ Note: For the version numbers used here it is ok to leave older versions in.
 
 ## Camunda BPM Platform code changes
 
-* time: when the [jobs](https://github.com/camunda/camunda-bpm-platform/wiki/Perfoming-a-Minor-Release#ci-tasks) below are ready
+* time: when the [jobs](#ci-tasks) below are ready
 
 ### Update "old version" in maven
 
@@ -866,8 +865,7 @@ Update the `camunda.version.old` property in:
 * camunda-bpm-platform:
   * [database pom][database-pom]
   * [qa/create new engine (here: `version.previous`)](https://github.com/camunda/camunda-bpm-platform/blob/master/qa/test-db-rolling-update/create-new-engine/pom.xml)
-  * [ qa/test-db-upgrade](https://github.com/camunda/camunda-bpm-platform/blob/master/qa/test-db-upgrade/pom.xml)
-* [camunda-engine-dmn][engine-dmn-pom]
+  * [qa/test-db-upgrade](https://github.com/camunda/camunda-bpm-platform/blob/master/qa/test-db-upgrade/pom.xml)
 * [camunda-bpmn-model][bpmn-model-pom]
 * [camunda-cmmn-model][cmmn-model-pom]
 * [camunda-dmn-model][dmn-model-pom]
@@ -875,7 +873,6 @@ Update the `camunda.version.old` property in:
 
 to the previous minor version.
 
-If the minor release includes a new commons release, update the `version.old` properties in [camunda/camunda-commons][typed-values-pom].  
 If the minor release includes a new spin release, update the `spin.version.old` properties in [camunda/camunda-spin][spin-pom].  
 If the minor release includes a new connect release, update the `connect.version.old` properties in [camunda/camunda-connect][connect-pom].
 
@@ -929,7 +926,7 @@ In the [sql-scripts][sql-scripts] folder of the [camunda/camunda-bpm-platform][c
 
 ### Example commit for above code changes
 
-See this [commit](https://github.com/camunda/camunda-bpm-platform/commit/df0df1688e7582eb89ade6a1fc004505501822b8) for [camunda-bpm-platform][camunda-bpm-platform] and [this one](https://github.com/camunda/camunda-commons/commit/1e4b32952eb01fa1e6108a766cd978cc3ed9571b) for [camunda-commons](https://github.com/camunda/camunda-commons/tree/master).
+See this [commit](https://github.com/camunda/camunda-bpm-platform/commit/df0df1688e7582eb89ade6a1fc004505501822b8) for [camunda-bpm-platform][camunda-bpm-platform].
 
 ## CI tasks
 
