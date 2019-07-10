@@ -72,6 +72,10 @@ return new MyClass() {
 
 * Do not push `TODO` or `FIXME` comments to master. Instead, either fix it immediately or create a JIRA issue that describes the user impact.
 
+### Specifics
+
+* Make setters in `ProcessEngineConfigurationImpl` and `ProcessEngineConfiguration` fluent
+
 ## Best Practices:
 
 * Within the same source file, the ordering of annotations should be consistent
