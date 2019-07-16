@@ -16,7 +16,7 @@ Problems from the past
 
 The following BPMN diagram shows the process of how we handle pull requests ([Open Full Size](img/pull-requests.png)):
 
-[[img/pull-requests.png]]
+![pull-requests](img/pull-requests.png)
 
 Some Notes:
 - Overview of Pull Requests: <https://hq2.camunda.com/pull-requests.html> (Camunda Internal only)

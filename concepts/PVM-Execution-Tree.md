@@ -11,7 +11,7 @@ Before considering runtime state, let's define the notion of *activities* the pr
 
 Consider the following example:
 
-[[img/execution-tree/compositionExample.png]]
+![composition-example](img/execution-tree/compositionExample.png)
 
 Out of these, the following activities are scope activities:
 
@@ -58,49 +58,49 @@ Regardless of how complex the structure of a process instance is, the execution 
 
 ### Single No-scope Activity
 
-[[img/execution-tree/pattern1.png]]
+![pattern-1](img/execution-tree/pattern1.png)
 
 Activity **A** is not a scope, because it is not a variable scope according to BPMN and has no boundary event.
 
 When **A** is active, the process instance is represented by the following execution tree:
 
-[[img/execution-tree/pattern1tree.png]]
+![pattern-1-tree](img/execution-tree/pattern1tree.png)
 
 There is a single execution **1**. **1** is the process instance itself. That means, it is responsible for executing the process definition. The process-definition is a scope, so the attribute *isScope* is *true*. **1** is currently executing the activity **A**, which explains the *activityId* setting.
 
 ### Concurrent No-scope Activities
 
-[[img/execution-tree/pattern2.png]]
+![pattern-2](img/execution-tree/pattern2.png)
 
 Again, activities **A** and **B** are not scope activities.
 
 When both **A** and **B** are active, the execution tree has the following structure:
 
-[[img/execution-tree/pattern2tree.png]]
+![pattern-2-tree](img/execution-tree/pattern2tree.png)
 
 Now, there are three executions. Starting from the root, execution **1** is again the process instance and a scope because the process definition defines a variable scope. It has two children, **2** and **3**. Each of these is concurrent (*isConcurrent* is *true*) and the activities they execute are not scopes (*isScope* is false). Execution **1** has no *activityId* because it is not responsible for actively executing an activity. Instead, **2** and **3** have a non-null *activityId* instead.
 
 ### Single Scope Activity
 
-[[img/execution-tree/pattern3.png]]
+![pattern-3](img/execution-tree/pattern3.png)
 
 This time, activity **A** is a scope activity. Due to the boundary event, it defines a context in which events can be received. This context is valid for the lifetime of the activity instance. It therefore requires an extra execution.
 
 Thus, when **A** is active, the execution tree looks as follows:
 
-[[img/execution-tree/pattern3tree.png]]
+![pattern-3-trees](img/execution-tree/pattern3tree.png)
 
 There are two scope executions. Execution **1** is the scope execution for the process definition scope while **2** is the scope execution for activity **A**. Having two scopes is important, because when activity **A** completes, only the event subscriptions of execution **2** should be removed.
 
 ### Concurrent Scope Activities
 
-[[img/execution-tree/pattern4.png]]
+![pattern-4](img/execution-tree/pattern4.png)
 
 Both, **A** and **B**, are scope activities and located in the same parent scope activity.
 
 When both are active, the execution tree is the following:
 
-[[img/execution-tree/pattern4tree.png]]
+![pattern-4-tree](img/execution-tree/pattern4tree.png)
 
 The executions **2** and **3** are just there to represent the concurrency in the scope of **1**. For execution of the activities, the scope executions **4** and **5** are responsible.
 
@@ -112,11 +112,11 @@ As mentioned above, there are different kinds of scope and none-scope activities
 
 With arbitrary structures of activities and nesting in subprocesses, the execution tree becomes more complex than the four patterns shown above. However, the tree is only a composition of these patterns. Let's look at an example:
 
-[[img/execution-tree/compositionExample.png]]
+![composition-example](img/execution-tree/compositionExample.png)
 
 When both activities, **A** and **B**, are active, the tree looks as follows:
 
-[[img/execution-tree/compositionExampleTree.png]]
+![composition-example-tree](img/execution-tree/compositionExampleTree.png)
 
 Notice how the execution structure of **1**, **2**, **3**, and **4** is a mixed instance of the patterns [Concurrent No-Scope Activities](ref:#process-engine-execution-structure-concurrent-no-scope-activities) and [Concurrent-Scope Activities](ref:#process-engine-execution-structure-concurrent-scope-activities). Execution **4** is responsible for executing the subprocess scope. Since activity **B** is a scope, **4** has a child execution **5**. This is an instance of the pattern [Single Scope Activity](ref:#process-engine-execution-structure-single-scope-activity).
 
@@ -152,10 +152,10 @@ The activity instance id is set on an execution following the first matching rul
 
 For Example:
 
-[[img/execution-tree/activity-instance-ids-on-execution-tree-process.png]]
+![activity-instance-ids-on-execution-tree-process](img/execution-tree/activity-instance-ids-on-execution-tree-process.png)
 
 When both activities, **A** and **B**, are active, the execution tree looks as follows:
 
-[[img/execution-tree/activity-instance-ids-on-execution-tree.png]]
+![activity-instance-ids-on-execution-tree](img/execution-tree/activity-instance-ids-on-execution-tree.png)
 
 Both executions **4** and **6** have no child executions and have the activity instance id of the user task **A** and **B**. The executions **3** and **5** have the same activity instance id because **5** execute the composite activity **Subprocess**. **1** is the execution of the process instance and has the id of the process instance as activity instance id. The execution **2** does not match the other patterns and take the activity instance id of the parent execution **1**.
