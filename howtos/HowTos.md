@@ -244,7 +244,7 @@ docker pull registry.camunda.com/camunda-ci-mariadb
 docker run -d -p 3306:3306 registry.camunda.com/camunda-ci-mariadb
 ```
 
-#HowTo Setup Camunda Springboot
+# HowTo Setup Camunda Springboot
 - Clone the repo from here https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-webapp-ee
 - Check out compatible versions need to be added in Pom.xml from this link 
 https://docs.camunda.org/manual/develop/user-guide/spring-boot-integration/version-compatibility/
