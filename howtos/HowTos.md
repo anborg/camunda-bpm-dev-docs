@@ -243,3 +243,77 @@ After that start the mariadb, also with docker.
 docker pull registry.camunda.com/camunda-ci-mariadb
 docker run -d -p 3306:3306 registry.camunda.com/camunda-ci-mariadb
 ```
+
+#HowTo Setup Camunda Springboot
+- Clone the repo from here https://github.com/camunda/camunda-bpm-examples/tree/master/spring-boot-starter/example-webapp-ee
+- Check out compatible versions need to be added in Pom.xml from this link 
+https://docs.camunda.org/manual/develop/user-guide/spring-boot-integration/version-compatibility/
+- Add following configuration in pom.xml
+
+```xml
+<properties>
+  <camunda.version>7.x.x</camunda.version>
+  <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
+  <camunda.spring.boot.starter.version>3.3.0-SNAPSHOT</camunda.spring.boot.starter.version>
+</properties>
+```
+- Enabling Groovy script engine add following configuration in pom.xml
+
+```xml
+<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-jsr223 -->
+<dependency>
+    <groupId>org.codehaus.groovy</groupId>
+    <artifactId>groovy-jsr223</artifactId>
+    <version>2.4.13</version>
+</dependency>
+```
+## Using Generic Engine Properties
+- Add following configuration in applicaiton.yml file.
+
+```yaml
+camunda:
+  bpm:
+    generic-properties:
+      properties:
+        enable-password-policy: true
+```
+## Springboot Database Setup
+
+### MYSQL
+#####  pom.xml
+```xml
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+```
+#####  Application.yaml
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:mysql[URL to you database]
+    driver-class-name: com.mysql.jdbc.Driver
+    username: camunda
+    password: camunda
+```
+
+### POSTGRES
+#####  pom.xml
+```xml
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.4.1211.jre6</version>
+    </dependency>
+```
+#####  Application.yaml
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql:[URL to your database]
+    driver-class-name: org.postgresql.Driver
+    username: camunda
+    password: camunda
+```
