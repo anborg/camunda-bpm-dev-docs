@@ -62,7 +62,7 @@ Hint: It takes about two hours until the artifacts are searchable on Maven Centr
 
 ### Release JIRA
 
-Follow the steps in the [Minor Release Guide](https://github.com/camunda/camunda-bpm-platform/wiki/Perfoming-a-Minor-Release#release-jira) or [Alpha Release Guide](https://github.com/camunda/camunda-bpm-platform/wiki/Performing-an-Alpha-Release#release-jira).
+Follow the steps in the [Minor Release Guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-a-Minor-Release.md#release-jira) or [Alpha Release Guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-jira).
 
 ## Patch release 
 
@@ -101,4 +101,4 @@ For sideprojects, a version adjustment must be performed, example: https://githu
 Hint: It takes about two hours until the artifacts are searchable on Maven Central.
 
 
-5. Release JIRA: Follow the steps in the [Patch Release Guide](https://github.com/camunda/camunda-bpm-platform/wiki/Perfoming-a-Patch-Release#release-the-patch-version-in-jira).
+5. Release JIRA: Follow the steps in the [Patch Release Guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Perfoming-a-Patch-Release.md#release-the-patch-version-in-jira).

@@ -10,7 +10,7 @@ The release procedure has 2 phases:
 - [ ] [Update the Enterprise Download Page](#update-the-enterprise-download-page)
 - [ ] [Test the Release Build](#test-the-release-build)
 - [ ] [Unblock the Branch](#unblock-the-branch)
-- [ ] [Release Javadocs](https://github.com/camunda/camunda-bpm-platform/wiki/Performing-an-Alpha-Release#release-javadocs)
+- [ ] [Release Javadocs](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-javadocs)
 
 ## Phase 2: Publish the Release
 

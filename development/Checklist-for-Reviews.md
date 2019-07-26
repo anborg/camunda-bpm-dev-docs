@@ -1,6 +1,6 @@
 # Always
 
-* Is [Backwards Compatibility](https://github.com/camunda/camunda-bpm-platform/wiki/Backwards-Compatibility) maintained?
+* Is [Backwards Compatibility](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/development/Backwards-Compatibility.md) maintained?
 * Are relevant Test Cases provided?
 * Does the code keep internal concepts and classes out of the public API?
 * Do the design decisions make sense?

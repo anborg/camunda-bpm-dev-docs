@@ -61,7 +61,7 @@ Example: `db2_engine_7.2_to_7.3.sql` or `mysql_engine_7.1_to_7.2.sql`.
 
 # Maintaining Backwards Compatibility
 
-See Section on [Backwards Compatibility](https://github.com/camunda/camunda-bpm-platform/wiki/Backwards-Compatibility)
+See Section on [Backwards Compatibility](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/development/Backwards-Compatibility.md)
 
 ## Testing
 The upgrade scripts are tested using the [database upgrade](https://github.com/camunda/camunda-bpm-platform/tree/master/qa/test-db-upgrade) project.

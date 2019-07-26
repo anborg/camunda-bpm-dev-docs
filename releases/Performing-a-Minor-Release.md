@@ -151,7 +151,7 @@ git push origin 7.12.0
 ## Release all secondary Camunda projects
 
 1. Check the [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml#L34-L43), if there are secondary projects with an alpha/snapshot version.
-2. If that's the case we need to release them. Follow this [procedure](https://github.com/camunda/camunda-bpm-platform/wiki/Release-secondary-projects)
+2. If that's the case we need to release them. Follow this [procedure](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Release-secondary-projects.md)
 
 **Hint:**
 When releasing a secondary project, other secondary projects might have cross-references to it and you should update them accordingly. E.g., for camunda-commons you need to update the `pom.xml` files of the following projects as well:
@@ -908,15 +908,13 @@ When the new version is 7.x, a new instance migration project that performs upgr
 In the [sql-scripts][sql-scripts] folder of the [camunda/camunda-bpm-platform][camunda-bpm-platform]:
 
 1. Create an empty upgrade script for each supported database following the naming pattern ```${database}_engine_${previousVersion}_to_${currentVersion}```.
-2. Follow this [SQL Development Guide](https://github.com/camunda/camunda-bpm-platform/wiki/SQL-and-DDL-Management#development-1) to set the initial content of the new scripts.
+2. Follow this [SQL Development Guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/development/SQL-and-DDL-Management.md#development-1) to set the initial content of the new scripts.
 
 [camunda-bpm-platform]: https://github.com/camunda/camunda-bpm-platform/tree/master
 [sql-scripts]: https://github.com/camunda/camunda-bpm-platform/tree/master/engine/src/main/resources/org/camunda/bpm/engine/db
 [database-pom]: https://github.com/camunda/camunda-bpm-platform/blob/master/database/pom.xml
-[typed-values-pom]: https://github.com/camunda/camunda-commons/blob/master/typed-values/pom.xml
 [instance-migration]: https://github.com/camunda/camunda-bpm-platform/tree/master/qa/test-db-instance-migration
 [instance-migration-pom]: https://github.com/camunda/camunda-bpm-platform/tree/master/qa/test-db-instance-migration/pom.xml
-[engine-dmn-pom]: https://github.com/camunda/camunda-engine-dmn/blob/master/pom.xml
 [bpmn-model-pom]: https://github.com/camunda/camunda-bpmn-model/blob/master/pom.xml
 [cmmn-model-pom]: https://github.com/camunda/camunda-cmmn-model/blob/master/pom.xml
 [dmn-model-pom]: https://github.com/camunda/camunda-dmn-model/blob/master/pom.xml

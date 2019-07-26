@@ -58,7 +58,7 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 > Audience: camundabpm@camunda.com, sre@camunda.com
 
 ## **Celebrate camunda BPM 7.9.0-alpha3**
-> Please see [Celebrate The Release](https://github.com/camunda/camunda-bpm-platform/wiki/Performing-an-Alpha-Release#celebrate-the-release).
+> Please see [Celebrate The Release](#present-and-celebrate-the-release).
 
 # Prepare the Blogpost
 
@@ -89,7 +89,7 @@ Ask your colleagues to contribute content for any noteworthy features they have 
 
 # Check Preconditions
 
-- There are no Snapshot dependencies to secondary projects like Spin or Connect ([Release procedure](https://github.com/camunda/camunda-bpm-platform/wiki/Release-secondary-projects)). For that, check [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) for snapshot dependencies (All snapshot dependencies contain the word 'SNAPSHOT' in their name).
+- There are no Snapshot dependencies to secondary projects like Spin or Connect ([Release procedure](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Release-secondary-projects.md)). For that, check [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) for snapshot dependencies (All snapshot dependencies contain the word 'SNAPSHOT' in their name).
 - There are no code problems ([check ci](https://hq2.camunda.com/broken) section "Master" and "Release")
 - [Release Test Job](https://release.cambpm.camunda.cloud/view/Release-Test/) passed successfully recently
 - Send an email to camundabpm@camunda.com:
