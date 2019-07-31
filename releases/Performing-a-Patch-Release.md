@@ -39,8 +39,7 @@ Use the following confluence page to select the appropriate link to the Jenkins 
 
 https://app.camunda.com/confluence/pages/viewpage.action?pageId=16583012
 
-Track the progress of release builds here.
-https://release.cambpm.camunda.cloud/view/Release-7.11/
+
 
 Click on the "Run" icon. Make sure to set the configuration to something like:
 
@@ -57,6 +56,9 @@ OVERRIDE_TAG:        false
 Click Build. 
 Wait for the following jobs to turn green before continuing with the next step:
 * 7.7-RELEASE-build-camunda-bpm-maintenance-tags
+
+Track the progress of release builds here.
+https://release.cambpm.camunda.cloud/view/Release-7.11/
 
 ## Update the Enterprise Download Page
 
