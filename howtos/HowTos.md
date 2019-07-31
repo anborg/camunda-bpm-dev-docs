@@ -282,9 +282,15 @@ camunda:
 ### MYSQL
 #####  pom.xml
 ```xml
-    <dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+    <version>${spring.boot.version}</version>
+</dependency>
+     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.17</version>
     </dependency>
 ```
 #####  Application.yaml
@@ -301,6 +307,11 @@ spring:
 ### POSTGRES
 #####  pom.xml
 ```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+    <version>${spring.boot.version}</version>
+</dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
