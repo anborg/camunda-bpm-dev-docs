@@ -5,8 +5,8 @@
 ### Why Scala FEEL?
 
 * The feature set of ...
-  * Java FEEL is [very limited](very-limited)
-  * Scala FEEL is [feature complete](feature-complete)
+  * Java FEEL is [very limited][very-limited]
+  * Scala FEEL is [feature complete][feature-complete]
 * Java FEEL is based on the JUEL engine and it is hard to implement new features
 
 ### Why not Scala FEEL?
@@ -97,16 +97,17 @@ time zoned date values, i. e. Java 8 date time API is used
     **Effort Estimation:** Medium
 3.  No timezone information for date input expression is compared with date \
     **Action-Item:** Make it work
-      * **Case 1:** Input expression value has timezone information and is compared against date 
+    * **Case 1:** Input expression value has timezone information and is compared against date 
       value with timezone information => Happy Path!
-      * **Case 2:** Input expression value has no timezone information and is compared against 
+    * **Case 2:** Input expression value has no timezone information and is compared against 
       date value without timezone information => local time comparision
-      * **Case 3:** Input expression value has no timezone information and is compared against 
+    * **Case 3:** Input expression value has no timezone information and is compared against 
       date value with timezone information => timezone information of JVM is added to input 
       expression
-      * **Case 4:** Input expression value has timezone information and is compared against date 
-      value without timezone information => Like Case 3 \
-    ** Effort Estimation:** Medium
+    * **Case 4:** Input expression value has timezone information and is compared against date 
+      value without timezone information => Like Case 3
+      
+    **Effort Estimation:** Medium
 
 * Custom Function Mechanism
 
