@@ -1,6 +1,15 @@
 # Intermediate Results of Scala FEEL Spike
 
-## In a Nutshell
+## Table of Contents
+
+* [Pros & Cons](#pros--cons-in-a-nutshell)
+* [Java Compatibility](#java-compatibility)
+* [Shading](#shading)
+* [Breaking Changes](#breaking-changes)
+* [Migration Guide](#migration-guide)
+* [Action Items & Estimation](#action-items--estimation)
+
+## Pros & Cons in a Nutshell
 
 ### Why Scala FEEL?
 
@@ -61,7 +70,7 @@ specification; To be investigated)
 time zoned date values, i. e. Java 8 date time API is used
   * To be investigated what is specification compliant in this situation
 
-## User Migration Path
+## Migration Guide
 
 * Java FEEL Engine provides custom function mechanism which is part of private API
 * We need to outline how users can migrate their custom functions for Scala Feel Engine
