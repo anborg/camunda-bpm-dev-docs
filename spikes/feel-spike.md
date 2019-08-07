@@ -23,20 +23,21 @@ Date/Time API)
 
 ### Java 8 EOL
 
-* Scala plans to switch to the next Java LTS Version 11 as minimal requirement
+* Scala plans to switch to the next Java LTS Version 12 as minimal requirement
 * This is not planned for Scala 2.x
 * Dropping Java 8 is likely to happen for Scala 3.0 (which will be released in early 2020)
 
 ### Impact
 
-If Scala 2.x maintenance is dropped, we are forced to make Java 11 a minimal requirement for the 
-Scala FEEL Engine or accept that the Scala Library will not be updated anymore.
+If Scala 2.x maintenance is dropped, we are forced to make Java 12 a minimal requirement for the 
+Scala FEEL Engine or accept that the Scala Library will not receive patches anymore.
 
 ## Shading
 
 * The Scala Library is included in the Scala FEEL Engine artifact
 * The Scala Library package is relocated from `scala` to e. g. `camundajar.scala`
 * Imports that point to the `scala` package are rewritten
+* There exist JAR optimizers like `ProGuard` to reduce the size of the shaded artifact
 
 ### Pros
 
@@ -60,10 +61,60 @@ specification; To be investigated)
 time zoned date values, i. e. Java 8 date time API is used
   * To be investigated what is specification compliant in this situation
 
-## Migration Path
+## User Migration Path
 
 * Java FEEL Engine provides custom function mechanism which is part of private API
 * We need to outline how users can migrate their custom functions for Scala Feel Engine
 
+## Action Items & Estimation
+
+### On FEEL Engine Side
+
+
+#### House Keeping
+
+1.  `nscala-time` not used in Scala FEEL Engine \
+    **Action-Item:** Remove dependency \ 
+    **Effort:** Easy-pick
+2.  `slf4j-api` should not be included in artifact \
+    **Action-Item:** Make `slf4j-api` a dependency of scope `provided` \
+    **Effort:** Easy-pick 
+3.  There exists no `impl` package => this means everything has API guarantees \
+    **Action-Item:** Move all classes to `impl` package \
+    **Effort:** Easy-pick
+4.  No license headers present on source code \
+    **Action-Item:** Add license header to all source code files \
+    **Effort:** Easy-pick
+
+#### Breaking Changes
+
+1.  String literals must be double quoted according to DMN 1.0/1.1/1.2 (cf. DMN 1.1, pg. 109, 
+    section 10.3.2.32) \
+    **Action-Item:** Add documentation to migration guide \
+    **Effort Estimation:** Easy-pick
+2.  Unary test: Function result cannot be compared with implicit equals \
+    **Action-Item:** Make it work \
+    **Effort Estimation:** Medium
+3.  No timezone information for date input expression is compared with date \
+    **Action-Item:** Make it work
+      * **Case 1:** Input expression value has timezone information and is compared against date 
+      value with timezone information => Happy Path!
+      * **Case 2:** Input expression value has no timezone information and is compared against 
+      date value without timezone information => local time comparision
+      * **Case 3:** Input expression value has no timezone information and is compared against 
+      date value with timezone information => timezone information of JVM is added to input 
+      expression
+      * **Case 4:** Input expression value has timezone information and is compared against date 
+      value without timezone information => Like Case 3 \
+    ** Effort Estimation:** Medium
+
+* Custom Function Mechanism
+
+
+### On Camunda BPM Runtime Side
+
+* shaded artifact is build
+
+
 [feature-complete]: https://github.com/camunda/feel-scala#status
-[very-limited]: https://docs.google.com/spreadsheets/d/1eLQjvLTr8nnnQV7h_rMk8fZbyW_oyipj1TO1wTiM_SA/edit#gid=0
+[very-limited]: https://docs.google.com/spreadsheets/d/1eLQjvLTr8nnnQV7h_rMk8fZbyW_oyipj1TO1wTiM_SA/edit
