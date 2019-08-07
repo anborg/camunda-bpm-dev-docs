@@ -63,12 +63,13 @@ shading)
 
 ## Breaking Changes
 
+In the course of the Spike a [bunch of test cases][test-cases] were created to spot breaking 
+changes.
+
 1. String literals can be compared with single quotes in Java Feel engine
-2. Built-in functions cannot be used directly in unary tests (may not be compliant to 
-specification; To be investigated)
+2. Built-in functions cannot be used directly in unary tests
 3. Util date as input cannot be compared with built-in date function (always compares against 
 time zoned date values, i. e. Java 8 date time API is used
-  * To be investigated what is specification compliant in this situation
 
 ## Migration Guide
 
@@ -82,7 +83,7 @@ time zoned date values, i. e. Java 8 date time API is used
 #### House Keeping
 
 1.  `nscala-time` not used in Scala FEEL Engine \
-    **Action-Item:** Remove dependency \ 
+    **Action-Item:** Remove dependency \
     **Effort:** Easy-pick
 2.  `slf4j-api` should not be included in artifact \
     **Action-Item:** Make `slf4j-api` a dependency of scope `provided` \
@@ -143,3 +144,4 @@ time zoned date values, i. e. Java 8 date time API is used
 [feature-complete]: https://github.com/camunda/feel-scala#status
 [very-limited]: https://docs.google.com/spreadsheets/d/1eLQjvLTr8nnnQV7h_rMk8fZbyW_oyipj1TO1wTiM_SA/edit
 [feel-scala-docs]: https://camunda.github.io/feel-scala/
+[test-cases]: https://github.com/camunda/camunda-bpm-platform/tree/feel-scala-integration
