@@ -5,7 +5,7 @@
 ### Why Scala FEEL?
 
 * The feature set of ...
-  * Java FEEL is [very limited][very-limited]
+  * Java FEEL is [very limited][very-limited] (comparison spreadsheet)
   * Scala FEEL is [feature complete][feature-complete]
 * Java FEEL is based on the JUEL engine and it is hard to implement new features
 
@@ -68,8 +68,7 @@ time zoned date values, i. e. Java 8 date time API is used
 
 ## Action Items & Estimation
 
-### On FEEL Engine Side
-
+### FEEL Engine
 
 #### House Keeping
 
@@ -84,6 +83,12 @@ time zoned date values, i. e. Java 8 date time API is used
     **Effort:** Easy-pick
 4.  No license headers present on source code \
     **Action-Item:** Add license header to all source code files \
+    **Effort:** Easy-pick
+6.  There exists an updated documentation of FEEL \
+    **Action-Item:** Take over comprehensive [`feel-scala` documentation][feel-scala-docs] \
+    **Effort:** Medium
+7.  There exists a migration guide between the old and the new Custom Function Mechanism \
+    **Action-Item:** Write documentation for the migration guide \
     **Effort:** Easy-pick
 
 #### Breaking Changes
@@ -109,13 +114,23 @@ time zoned date values, i. e. Java 8 date time API is used
       
     **Effort Estimation:** Medium
 
-* Custom Function Mechanism
+### Camunda BPM Runtime
 
-
-### On Camunda BPM Runtime Side
-
-* shaded artifact is build
+1.  Camunda specific FEEL artifact is build \
+    **Action-Items:**
+    * Take over `feel-engine-factory` project in `camunda-bpm-platform` repository
+      * `feel-engine` project remains in `feel-scala` project
+    * Define maven coordinates of artifact
+    * Shade `scala-library` and define a sensible prefix (e. g. `camundajar.`) \
+    **Effort:** Easy-pick
+2.  Fallback to Java FEEL implementation if Scala FEEL is not available \
+    **Action-Items:**
+    * In decision engine configuration `Class#forName` lookup is performed for FEEL factory
+    * Decision Engine is bootstrapped with Scala FEEL if available
+    * If Scala FEEL is unavailable, it falls back to Java FEEL \
+    **Effort:** Easy-pick
 
 
 [feature-complete]: https://github.com/camunda/feel-scala#status
 [very-limited]: https://docs.google.com/spreadsheets/d/1eLQjvLTr8nnnQV7h_rMk8fZbyW_oyipj1TO1wTiM_SA/edit
+[feel-scala-docs]: https://camunda.github.io/feel-scala/
