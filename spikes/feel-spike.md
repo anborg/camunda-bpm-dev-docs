@@ -70,6 +70,7 @@ changes.
 2. Built-in functions cannot be used directly in unary tests
 3. Util date as input cannot be compared with built-in date function (always compares against 
 time zoned date values, i. e. Java 8 date time API is used
+4. Joda DateTime (with timezone) cannot be compared anymore (not mapped by Scala FEEL engine)
 
 ## Migration Guide
 
@@ -125,6 +126,9 @@ time zoned date values, i. e. Java 8 date time API is used
 4. SPIN XML & JSON values are automatically mapped to the FEEL structure "context" (cf. DMN 1.1, pg. 125, section 10.3.3) \
    In a Java FEEL expression it is possible to access SPIN values via SPIN Java API
    **Action-Item:** Add documentation to migration guide
+   **Effort:** Easy-pick
+5. Joda DateTime (with timezone) cannot be compared anymore \
+   **Action-Item:** Make it work
    **Effort:** Easy-pick
 
 ### Camunda BPM Runtime
