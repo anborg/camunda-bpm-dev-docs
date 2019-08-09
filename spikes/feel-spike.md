@@ -109,7 +109,7 @@ time zoned date values, i. e. Java 8 date time API is used
     **Effort Estimation:** Easy-pick
 2.  Unary test: Function result cannot be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
     **Action-Item:** Make it work \
-    **Effort Estimation:** Medium
+    **Effort:** Medium
 3.  No timezone information for date input expression is compared with date \
     **Action-Item:** Make it work
     * **Case 1:** Input expression value has timezone information and is compared against date 
@@ -122,7 +122,11 @@ time zoned date values, i. e. Java 8 date time API is used
     * **Case 4:** Input expression value has timezone information and is compared against date 
       value without timezone information => Like Case 3
       
-    **Effort Estimation:** Medium
+    **Effort:** Medium
+4. SPIN XML & JSON values are automatically mapped to the FEEL structure "context" (cf. DMN 1.1, pg. 125, section 10.3.3) \
+   In a Java FEEL expression it is possible to access SPIN values via SPIN Java API
+   **Action-Item:** Add documentation to migration guide
+   **Effort:** Easy-pick
 
 ### Camunda BPM Runtime
 
