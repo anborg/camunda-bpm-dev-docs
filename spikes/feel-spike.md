@@ -110,16 +110,15 @@ time zoned date values, i. e. Java 8 date time API is used
 2.  Unary test: Function result cannot be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
     **Action-Item:** Make it work \
     **Effort:** Medium
-3.  No timezone information for date input expression is compared with date \
+3.  Util date cannot be compared with date input expression that has no timezone information \
     **Action-Item:** Make it work
-    * **Case 1:** Input expression value has timezone information and is compared against date 
+    * **Case 1:** Input expression value has timezone information and is compared with date 
       value with timezone information => Happy Path!
-    * **Case 2:** Input expression value has no timezone information and is compared against 
-      date value without timezone information => local time comparision
-    * **Case 3:** Input expression value has no timezone information and is compared against 
-      date value with timezone information => timezone information of JVM is added to input 
-      expression
-    * **Case 4:** Input expression value has timezone information and is compared against date 
+    * **Case 2:** Input expression value has no timezone information and is compared with 
+      date value without timezone information => local time comparison
+    * **Case 3:** Input expression value has no timezone information and is compared with 
+      date value with timezone information => not possible, exception is thrown
+    * **Case 4:** Input expression value has timezone information and is compared with date 
       value without timezone information => Like Case 3
       
     **Effort:** Medium
