@@ -131,13 +131,15 @@ time zoned date values, i. e. Java 8 date time API is used
     * Take over `feel-engine-factory` project in `camunda-bpm-platform` repository
       * `feel-engine` project remains in `feel-scala` project
     * Define maven coordinates of artifact
-    * Shade `scala-library` and define a sensible prefix (e. g. `camundajar.`) \
+    * Shade `scala-library` and define a sensible prefix (e. g. `camundajar.`)
+    
     **Effort:** Easy-pick
 2.  Fallback to Java FEEL implementation if Scala FEEL is not available \
     **Action-Items:**
     * In decision engine configuration `Class#forName` lookup is performed for FEEL factory
     * Decision Engine is bootstrapped with Scala FEEL if available
-    * If Scala FEEL is unavailable, it falls back to Java FEEL \
+    * If Scala FEEL is unavailable, it falls back to Java FEEL
+    
     **Effort:** Easy-pick
 
 
