@@ -107,7 +107,7 @@ time zoned date values, i. e. Java 8 date time API is used
     section 10.3.2.32) \
     **Action-Item:** Add documentation to migration guide \
     **Effort Estimation:** Easy-pick
-2.  Unary test: Function result cannot be compared with implicit equals \
+2.  Unary test: Function result cannot be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
     **Action-Item:** Make it work \
     **Effort Estimation:** Medium
 3.  No timezone information for date input expression is compared with date \
