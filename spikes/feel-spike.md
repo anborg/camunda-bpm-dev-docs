@@ -66,16 +66,17 @@ shading)
 In the course of the Spike a [bunch of test cases][test-cases] were created to spot breaking 
 changes.
 
+### Public API
 1. String literals can be compared with single quotes in Java Feel engine
 2. Built-in functions cannot be used directly in unary tests
 3. Util date as input cannot be compared with built-in date function (always compares against 
 time zoned date values, i. e. Java 8 date time API is used
 4. Joda DateTime (with timezone) cannot be compared anymore (not mapped by Scala FEEL engine)
 
-## Migration Guide
+### Private API
 
-* Java FEEL Engine provides custom function mechanism which is part of private API
-* We need to outline how users can migrate their custom functions for Scala Feel Engine
+1. Java FEEL Engine provides custom function mechanism which is part of private API
+   * We need to outline how users can migrate their custom functions for Scala Feel Engine
 
 ## Action Items & Estimation
 
