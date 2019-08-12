@@ -71,7 +71,9 @@ changes.
 2. Built-in functions cannot be used directly in unary tests
 3. Util date as input cannot be compared with built-in date function (always compares against 
 time zoned date values, i. e. Java 8 date time API is used
-4. Joda DateTime (with timezone) cannot be compared anymore (not mapped by Scala FEEL engine)
+4. Handling SPIN values has changed, i. e. Scala FEEL Engine automatically maps values to the FEEL 
+structure "context" 
+5. Joda DateTime (with timezone) cannot be compared anymore (not mapped by Scala FEEL engine)
 
 ### Private API
 
