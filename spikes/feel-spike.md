@@ -67,7 +67,7 @@ changes.
 
 ### Public API
 1. String literals can be compared with single quotes in Java Feel engine
-2. Built-in functions cannot be used directly in unary tests
+2. Expression results cannot be compared with equals
 3. Util date as input cannot be compared with built-in date function (always compares against 
 time zoned date values, i. e. Java 8 date time API is used
 4. Handling SPIN values has changed, i. e. Scala FEEL Engine automatically maps values to the FEEL 
