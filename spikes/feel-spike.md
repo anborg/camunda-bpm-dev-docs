@@ -112,7 +112,7 @@ time zoned date values, i. e. Java 8 date time API is used
 2.  Unary test: Function result cannot be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
     **Action-Item:** Make it work \
     **Effort:** Medium
-3.  Util date as input value cannot be compared with date input expression that has no timezone information \
+3.  Util date as input value can be compared with date value without timezone information according to DMN 1.1 (cf. DMN 1.1, pg. 110, section 10.3.2.3.6) \
     **Action-Item:** Make it work \
     **Effort:** Medium
 4. SPIN XML & JSON values are automatically mapped to the FEEL structure "context" (cf. DMN 1.1, pg. 125, section 10.3.3) \
