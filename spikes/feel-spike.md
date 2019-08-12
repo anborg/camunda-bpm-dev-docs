@@ -7,6 +7,7 @@
 * [Shading](#shading)
 * [Breaking Changes](#breaking-changes)
 * [Action Items & Estimation](#action-items--estimation)
+* [To be Investigated](#to-be-investigated)
 
 ## Pros & Cons in a Nutshell
 
@@ -78,6 +79,16 @@ structure "context"
 
 1. Java FEEL Engine provides custom function mechanism which is part of private API
    * We need to outline how users can migrate their custom functions for Scala Feel Engine
+
+## To be Investigated
+
+* Custom Function Mechanism 
+  * Probably not working for Java: provider class is successfully registered but cannot be resolved
+  * Evaluate if Java Custom Function mechanism can be used in conjunction with Scala
+* Process engine context functions (e.g. `now()`, `currentUser()`, etc.) are available in a redundant manner
+* Optimized shaded Jar to reduce the size of Scala Library
+* Understand difference of factory and plugin
+* Scala DMN Engine
 
 ## Action Items & Estimation
 
