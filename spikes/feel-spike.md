@@ -31,13 +31,13 @@ Date/Time API)
 
 ### Java 8 EOL
 
-* Scala plans to switch to the next Java LTS Version 12 as minimal requirement
+* Scala plans to switch to the next Java LTS Version 11 as minimal requirement
 * This is not planned for Scala 2.x
 * Dropping Java 8 is likely to happen for Scala 3.0 (which will be released in early 2020)
 
 ### Impact
 
-If Scala 2.x maintenance is dropped, we are forced to make Java 12 a minimal requirement for the 
+If Scala 2.x maintenance is dropped, we are forced to make Java 11 a minimal requirement for the 
 Scala FEEL Engine or accept that the Scala Library will not receive patches anymore.
 
 ## Shading
@@ -67,11 +67,11 @@ changes.
 
 ### Public API
 1. String literals can be compared with single quotes in Java Feel engine
-2. Expression results cannot be compared with equals
+2. Expression result cannot be compared with equals in unary test
 3. Util date as input cannot be compared with built-in date function (always compares against 
-time zoned date values, i. e. Java 8 date time API is used
+time zoned date values, i. e. Java 8 date time API is used)
 4. Handling SPIN values has changed, i. e. Scala FEEL Engine automatically maps values to the FEEL 
-structure "context" 
+structure "context"
 5. Joda DateTime (with timezone) cannot be compared anymore (not mapped by Scala FEEL engine)
 
 ### Private API
