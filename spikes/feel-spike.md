@@ -6,7 +6,6 @@
 * [Java Compatibility](#java-compatibility)
 * [Shading](#shading)
 * [Breaking Changes](#breaking-changes)
-* [Migration Guide](#migration-guide)
 * [Action Items & Estimation](#action-items--estimation)
 
 ## Pros & Cons in a Nutshell
