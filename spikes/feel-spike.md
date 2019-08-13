@@ -6,6 +6,7 @@
 * [Java Compatibility](#java-compatibility)
 * [Shading](#shading)
 * [Breaking Changes](#breaking-changes)
+* [Factory vs. Engine Plugin](#factory-vs-engine-plugin)
 * [Action Items & Estimation](#action-items--estimation)
 * [To be Investigated](#to-be-investigated)
 
