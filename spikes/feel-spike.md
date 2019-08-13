@@ -124,7 +124,7 @@ structure "context"
     section 10.3.2.32) \
     **Action-Item:** Add documentation to migration guide \
     **Effort Estimation:** Easy-pick
-2.  Unary test: Function result cannot be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
+2.  Unary test: Function result can be compared with implicit equals according to DMN 1.2 (cf. DMN 1.2, pg. 92, section 8.3.3 a.) \
     **Action-Item:** Make it work \
     **Effort:** Medium
 3.  Util date as input value can be compared with date value without timezone information according to DMN 1.1 (cf. DMN 1.1, pg. 110, section 10.3.2.3.6) \
@@ -134,7 +134,7 @@ structure "context"
    In a Java FEEL expression it is possible to access SPIN values via SPIN Java API \
    **Action-Item:** Add documentation to migration guide \
    **Effort:** Easy-pick
-5. Joda DateTime (with timezone) cannot be compared anymore \
+5. Joda DateTime (with timezone) can be compared \
    **Action-Item:** Make it work \
    **Effort:** Easy-pick
 
