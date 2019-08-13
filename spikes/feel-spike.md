@@ -80,14 +80,16 @@ structure "context"
 1. Java FEEL Engine provides custom function mechanism which is part of private API
    * We need to outline how users can migrate their custom functions for Scala Feel Engine
 
-## To be Investigated
+## Factory vs. Engine Plugin
+* The `feel-engine` registers two Java `javax.script.ScriptEngine` names (i. e. `feel-scala`, `feel-scala-unary-tests`) via `src/main/resources/META-INF/services/javax.script.ScriptEngineFactory`
+* The Engine Plugin changes the default expression languages of the DMN Engine to the respective `ScriptEngine` names
+* If the Scala Feel Engine is registered with the help of the Factory in the `DefaultDmnEngineConfiguration`, it is not available as `ScriptEngine`. This has the following main downsides:
+  * The Custom Function Mechanism is not available
+  * Performance is worse compared to the `ScriptEngine` registration (`ScriptEngine` makes heavy use of caching)
 
-* Custom Function Mechanism 
-  * Probably not working for Java: provider class is successfully registered but cannot be resolved
-  * Evaluate if Java Custom Function mechanism can be used in conjunction with Scala
+## To be Investigated
 * Process engine context functions (e.g. `now()`, `currentUser()`, etc.) are available in a redundant manner
 * Optimized shaded Jar to reduce the size of Scala Library
-* Understand difference of factory and plugin
 * Scala DMN Engine
 
 ## Action Items & Estimation
