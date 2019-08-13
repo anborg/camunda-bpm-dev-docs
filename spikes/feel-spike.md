@@ -89,7 +89,7 @@ structure "context"
   * Performance is worse compared to the `ScriptEngine` registration (`ScriptEngine` makes heavy use of caching)
 
 ## To be Investigated
-* Process engine context functions (e.g. `now()`, `currentUser()`, etc.) are available in a redundant manner
+* Process engine context functions (e.g. `now()`, `currentUser()`, etc.) are available in a redundant manner in the Scala Feel Engine as well as in the Process Engine
 * Optimized shaded Jar to reduce the size of Scala Library
 * Scala DMN Engine
 
