@@ -45,6 +45,7 @@ Camunda external task client JS is an NPM package; we will not build it but publ
  3. Push to npm
  `npm publish`
  If you see no error in the console, everything went right. Check the result [here](https://www.npmjs.com/package/camunda-external-task-client-js)
+ > When publishing an alpha, tag it as such (`npm publish --tag alpha`). It can then be installed using `npm install camunda-external-task-client-js@alpha`. 
 
 ## Cleanup
 Set the Version on master to the next-highest version snapshot, e.g.
