@@ -156,6 +156,9 @@ project = CAM AND fixVersion = <released version> AND type = "Security Report"
 Once the release test has been done, release the enterprise docs by triggering the following build:
 https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(enterprise)/
 
+## Release the Documentation (Manual)
+Once the release has been done, Check for update scripts for patches and trigger the following build with respective version 
+https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(manual-7.11)/
 
 ## Inform the Support Team
 Add information about the each patch release accroding to this page
