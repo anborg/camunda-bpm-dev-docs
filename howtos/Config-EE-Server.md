@@ -23,3 +23,16 @@ Here are the steps if you want to use the script to configure WebSphere/WebLogi
 5. The script will prompt you for your git credentials
 
 6. Wait to finish and then you can connect
+
+
+TODO: camunda-ci-weblogic:12R2-oracle-12 is not working, quick fix is to adjust the oracle profile in /qa/pom.xml:
+```
+     <profile>
+       <id>oracle</id>
+       <properties>
+         <weblogic.datasource.filename>datasource-camunda-jdbc.xml</weblogic.datasource.filename>
++        <my.database.url>${database.url}</my.database.url>
++        <my.database.host>${database.host}</my.database.host>
+       </properties>
+     </profile>
+```
