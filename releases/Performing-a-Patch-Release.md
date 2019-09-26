@@ -1,5 +1,7 @@
 # Patch Release Procedure
 
+Note: If you want to build a camunda-bpm-spring-boot-starter patch release, please refere to the release guide for [secondary projects](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Release-secondary-projects.md#patch-release).  
+
 The release procedure has 2 phases:
 
 ## Phase 1: Prepare the Release
