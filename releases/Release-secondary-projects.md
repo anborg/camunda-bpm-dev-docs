@@ -81,12 +81,11 @@ For sideprojects, a version adjustment must be performed, example: https://githu
 * SKIP_DEPLOY_TO_CAMUNDA_NEXUS: false (default)
 * OLD_VERSION: 1.4.1 (Set to the version against which to run future backward compatibility checks. Leave empty to keep things as they are)
 
-[sideprojects]
+[sideprojects only]
 
-* CAMBPM_VERSION: 7.x.y (the Camunda platform version against which the project will be built)
-* NEXT_CAMBPM_VERSION: 7.x.0-SNAPSHOT (the next development version of Camunda platform. That way the project will be tested against the latest changes from the platform after the release.)
+* CHANGE_CAMBPM_VERSION: false
 
-3.  Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.1 version](https://github.com/camunda/camunda-bpm-platform/commit/282a79ec000216e22af07fb86442340ad7b891e2)
+3. [secondary projects only] Adjust camunda-bpm-platform [bom](https://github.com/camunda/camunda-bpm-platform/blob/master/bom/pom.xml) file with the new spin [1.4.1 version](https://github.com/camunda/camunda-bpm-platform/commit/282a79ec000216e22af07fb86442340ad7b891e2)
 4. Release Maven Central - We have several CI jobs which upload artifacts to Maven Central into their staging repository section. In order to make them publicly available, we need to manually close the staging repositories and release the artifacts.
     * Go to [Maven Central](https://oss.sonatype.org/) and login using the credentials found in our [Confluence](https://app.camunda.com/confluence/display/camBPM/Maven+Central+Release)
     * On the left side, click on the 'Staging Repositories' link.
