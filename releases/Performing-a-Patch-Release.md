@@ -92,6 +92,8 @@ Review your commit on http://stage.docs.camunda.org/enterprise/download/
 
 For each application server one developer should perform a test. Download the release artifacts from http://stage.docs.camunda.org/enterprise/download/
 
+If you want to test Spring Boot Starter follow the [spring-boot-start setup guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/howtos/setup-camunda-spring-boot.md#howto-setup-camunda-springboot) to start the Camunda Platform with Spring Boot. 
+
 ### Standard Regression Test
 1. Download the release artifact from the enterprise download page
 2. Combine the platform with a database of choice.
