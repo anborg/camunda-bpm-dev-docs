@@ -236,21 +236,14 @@ We have several CI jobs which upload artifacts to Maven Central into their stagi
 3. After it has been loaded, scroll down to the bottom of the list. You should find the relevant Camunda staging repositories there.
 4. Mark each repository you want to release.
 
-    *For Example:*
+    *For Example:*  
 
-    > org.camunda.bpm.model:camunda-cmmn-model:7.9.0-alpha3
-    
-    > org.camunda.bpm:camunda-bom:7.9.0-alpha3
-    
-    > org.camunda.bpm.model:camunda-bpmn-model:7.9.0-alpha3
-    
-    > org.camunda.bpm.model:camunda-dmn-model:7.9.0-alpha3
-    
-    > org.camunda.bpm.dmn:camunda-engine-dmn-bom:7.9.0-alpha3
-    
-    > org.camunda.bpm.model:camunda-xml-model:7.9.0-alpha3
-    
-    > org.camunda.bpm.webapp:camunda-webapp:7.9.0-alpha3
+    >org.camunda.bpm.model:camunda-cmmn-model:7.9.0-alpha3  
+    >org.camunda.bpm:camunda-bom:7.9.0-alpha3  
+    >org.camunda.bpm.model:camunda-bpmn-model:7.9.0-alpha3  
+    >org.camunda.bpm.model:camunda-dmn-model:7.9.0-alpha3  
+    >org.camunda.bpm.model:camunda-xml-model:7.9.0-alpha3  
+    >org.camunda.bpm.webapp:camunda-webapp:7.9.0-alpha3
 
 5. Click on 'Release' at the menu on top of the list. A window will pop up were you can enter a description but it is not necessary. Activate 'Drop repository after release automatically'. Then proceed.
 6. Done.
