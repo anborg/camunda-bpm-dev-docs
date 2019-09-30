@@ -30,6 +30,21 @@ camunda:
         enable-password-policy: true
 ```
 
+### User autheroization and Admin user configuration
+```yaml
+camunda:
+  bpm:
+    filter:
+      create: All
+    job-execution:
+      core-pool-size: 10
+    admin-user:
+      id: xyz
+      password: xyz
+    authorization:
+      enabled: true
+```
+
 ## Springboot Database Setup
 
 ### MYSQL
