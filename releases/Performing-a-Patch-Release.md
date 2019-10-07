@@ -91,6 +91,7 @@ Review your commit on http://stage.docs.camunda.org/enterprise/download/
 Verify that the docker images CE and EE are built.
 
 CE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ce/
+
 EE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ee/
 
 ## Test the Release Build
