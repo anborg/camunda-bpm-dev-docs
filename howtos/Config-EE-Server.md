@@ -10,7 +10,7 @@ Here are the steps if you want to use the script to configure WebSphere/WebLogi
 2. Provide parameters
 
 * Camunda version - a tag or a branch name, example - 7.9.6, 7.10.0-alpha5, 7.9 or master
-* Nexus password (hq2-portainer pass from [conflluence](https://app.camunda.com/confluence/display/camBPM/New+Nexus+machine+accounts+for+CI))
+* Nexus password (hq2-portainer pass from [conflluence](https://app.camunda.com/confluence/display/SRE/New+machine+accounts+for+CI))
 
 3. Map ports if it is possible (some might be already taken).
 
