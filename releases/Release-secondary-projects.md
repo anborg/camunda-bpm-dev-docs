@@ -8,6 +8,7 @@ This process is valid for the sideprojects as well:
 * camunda-bpm-wildfly-swarm
 * camunda-external-task-client-java
 * camunda-bpm-assert
+* camunda-bpm-release-parent
 
 The following example is for camunda-spin project.
 
