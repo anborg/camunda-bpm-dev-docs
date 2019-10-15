@@ -2,7 +2,7 @@
 
 * These are the coding style guidelines that should be used for writing Java code
 * Rules must always be followed
-* Best practives should be followed, but exceptions can be made
+* Best practices should be followed, but exceptions can be made
 
 ## Rules:
 
@@ -13,7 +13,7 @@
 * No trailing whitespace; no whitespace on empty lines
 * Lines of code must not exceed 100 characters
 * If lines with method signatures exceed 100 characters, each parameter must be on a new line
-* Bracket placement: [Kernighan and Ritchie style](https://en.wikipedia.org/wiki/Indentation_style#K&R_style) ("Egyptian brackets") for nonempty blocks and block-like constructs; plus: opening brackets of classes and methods go on the same line as the declaration
+* Bracket placement: [Kernighan and Ritchie style](https://en.wikipedia.org/wiki/Indentation_style#K&R_style) ("Egyptian brackets") for non-empty blocks and block-like constructs; plus: opening brackets of classes and methods go on the same line as the declaration
 ```java
 return new MyClass() {
   @Override
@@ -35,13 +35,18 @@ return new MyClass() {
 * Local variables must be declared close to their first usage, not at the beginning of the block
 * Names of static final member variables (class fields) are uppercase with words separated by underscores ("_"); All other variable names are camel case
 
+### Variables
+* On declaring variables (local or global), always use the highest possible type that your implementation still can handle, e. g. ... 
+  * when declaring a map, prefer the `Map` interface over a concrete implementation type like `HashMap`
+  * `Collection` vs. `List` vs. `ArrayList`
+
 ### Files
 
 * Files must be encoded in UTF-8
 
 ### Java Keywords
 
-* In our main code base (i.e. no tests), modifier `private` is not allowed for fields and methods; `protected` should be used instead; this allows our users to work around problems or extend the engine easier
+* In our main codebase (i.e. no tests), modifier `private` is not allowed for fields and methods; `protected` should be used instead; this allows our users to work around problems or extend the engine easier
 * Always use `@Override` when you override or implement a method
 * Do not use `@author` tags; Do not remove existing tags
 * Avoid redundant interface modifiers: public (methods / fields), static (fields) & final (fields)
