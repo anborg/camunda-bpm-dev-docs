@@ -29,7 +29,7 @@ Example: last release 1.3.1, new release 1.4.0
 * USE_LOCAL_CHECKOUT: false (default)
 * SKIP_DEPLOY_TO_MAVEN_CENTRAL: false (default)
 * SKIP_DEPLOY_TO_CAMUNDA_NEXUS: false (default)
-* OLD_VERSION: 1.4.0 (Set to the version against which to run future backward compatibility checks. Leave empty to keep things as they are)
+* OLD_VERSION: 1.4.0 (Set to the version against which to run future backward compatibility checks. Leave empty to keep things as they are. **Commons >= 1.8** leave it empty)
 
 [sideprojects]
 
@@ -80,7 +80,7 @@ For sideprojects, a version adjustment must be performed, example: https://githu
 * USE_LOCAL_CHECKOUT: false (default)
 * SKIP_DEPLOY_TO_MAVEN_CENTRAL: false (default)
 * SKIP_DEPLOY_TO_CAMUNDA_NEXUS: false (default)
-* OLD_VERSION: 1.4.1 (Set to the version against which to run future backward compatibility checks. Leave empty to keep things as they are)
+* OLD_VERSION: 1.4.1 (Set to the version against which to run future backward compatibility checks. Leave empty to keep things as they are. **Commons >= 1.8** leave it empty)
 
 [sideprojects only]
 
