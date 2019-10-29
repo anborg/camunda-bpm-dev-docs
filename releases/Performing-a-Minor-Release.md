@@ -16,6 +16,19 @@ SUP = team-support@camunda.com
 
 SRE = sre@camunda.com
 
+Release Manager:
+
+Round-Robin from the following list:
+
+```
+Tobias Metzke
+Miklas Boskamp
+Tassilo Weidner
+Yana Vasileva
+Martin Stamm
+Nikola Koevski
+```
+
 The release procedure itself has 4 phases:
 
 ## [Phase 1: Setup Tasks](#phase-1)
