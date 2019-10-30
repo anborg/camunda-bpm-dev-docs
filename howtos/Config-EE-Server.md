@@ -79,6 +79,6 @@ TODO: camunda-ci-weblogic:12R2-oracle-12 is not working, quick fix is to adjust 
 1. Step 5: Finish and Save.
 1. In the overview, click on the new data source
 1. Click on **Custom properties** and set the following:
-   * user: <database user name>
-   * password: <database user password>
-   * url: <JDBC url>, in my case `jdbc:postgresql://portainer.camunda.loc:30039/process-engine`
+   * user: `<database user name>`
+   * password: `<database user password>`
+   * url: `<JDBC url>`, in my case `jdbc:postgresql://portainer.camunda.loc:30039/process-engine`
