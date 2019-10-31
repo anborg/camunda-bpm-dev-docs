@@ -369,6 +369,8 @@ After that, release the javadocs by triggering the following build:
 
 https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(javadoc-camunda-bpm-platform-7.9)/ (adjust the version in the URL)
 
+Now the new javadocs are available here: https://docs.camunda.org/javadoc/camunda-bpm-platform/7.9/
+
 # Release JIRA
 The goal for releasing the JIRA is to add the version you would like to release to issues which have already been closed as well as bug report issues which won't be included in the release because its status is **not closed**. To achieve this, please make sure that the alpha version you would like to release [already exists](https://app.camunda.com/jira/browse/CAM/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel). If not, ask Michael, Roman or Thorben to create this alpha version in JIRA.
 
