@@ -191,7 +191,7 @@ Check out compatible versions for the release --> [Spring Boot Version Compatibi
 Change the pom.xml file:
 ```
 <properties>
-  <camunda.version>7.11.0-alpha5</camunda.version>
+  <camunda.version>7.11.0-alpha5-ee</camunda.version>
   <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
   <camunda.spring.boot.starter.version>3.3.0-SNAPSHOT</camunda.spring.boot.starter.version>
 </properties>
