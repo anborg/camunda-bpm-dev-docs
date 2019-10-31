@@ -445,7 +445,7 @@ Verify that the docker images [CE](https://hub.docker.com/r/camunda/camunda-bpm-
 
 #### 1. Update the release notes link
 
-Update the link to the release notes in the blogpost's introduction. To generate it, go to [this page](https://app.camunda.com/jira/secure/ReleaseNote.jspa), select the version you would like to release, set the format to "html" and click on "Create". Ask Thorben if you do not have permissions to perform this step.
+Update the link to the release notes in the blogpost's introduction. To generate it (if not already done in a previous step), go to [this page](https://app.camunda.com/jira/secure/ReleaseNote.jspa), select the version you would like to release, set the format to "html" and click on "Create". Ask Thorben if you do not have permissions to perform this step.
 
 #### 2. Ensure that everyone has contributed their content.
 
