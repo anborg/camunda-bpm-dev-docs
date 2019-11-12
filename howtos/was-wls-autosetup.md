@@ -16,6 +16,7 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 1. Go to Portainer [http://portainer.camunda.loc:9000/](http://portainer.camunda.loc:9000/)
 2. Log in with your LDAP credentials
 3. Click on the Endpoint "primary"
+   ![wls step1](./img/autosetup-wls-step1.png)
 
 #### Step 2: Create a database container
 1. Click in the sidebar on "App Templates"
@@ -24,10 +25,12 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 3. Select a name that allows third-parties to trace the container back to you (e. g. "tassilo-oracle12c")
 4. Disable "Enable access control"
 5. Click on "Deploy the Stack"
+![wls step2 a](./img/autosetup-wls-step2a.png)
 6. On the stacks page, open your stack by clicking on the name
 7. In the "Services" tile copy the link of the published port "1521" (e. g. http://portainer.camunda.loc:30079/)
    * "portainer.camunda.loc" is the host name
    * "30079" is the exposed port
+![wls step2 b](./img/autosetup-wls-step2b.png)
 
 #### Step 3: Create the server container
 1. Click in the sidebar on "App Templates"
@@ -38,6 +41,7 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
    * Add the database name (it is usually "XE")
 5. Disable "Enable access control"
 6. Click on "Deploy the Stack"
+![wls step3](./img/autosetup-wls-step3.png)
 7. On the stacks page, open your stack by clicking on the name
 8. In the "Services" tile copy the link of the published port "7001" (e. g. http://portainer.camunda.loc:30081/)
 9. Wait up to five minutes until the server has been setup
