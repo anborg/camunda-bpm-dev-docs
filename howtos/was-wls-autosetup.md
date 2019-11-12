@@ -35,7 +35,7 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 #### Step 3: Create the server container
 1. Click in the sidebar on "App Templates"
 2. Scroll down to "WebLogic 12R2 + Oracle 18c (autosetup)"
-3. Select a name that third-parties to trace the container back to you (e. g. "tassilo-wls")
+3. Select a name that allows third-parties to trace the container back to you (e. g. "tassilo-wls")
 4. Add the database information
    * Add the database hostname and the port of your container
    * Add the database name (it is usually "XE")
@@ -74,7 +74,7 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 #### Step 3: Create the server container
 1. Click in the sidebar on "App Templates"
 2. Scroll down to "WebSphere 9.0 + DB2 11.1 (autosetup)"
-3. Select a name that third-parties to trace the container back to you (e. g. "tassilo-was")
+3. Select a name that allows third-parties to trace the container back to you (e. g. "tassilo-was")
 4. Add the database information
    * Add the database hostname and the port of your container
      * *Heads-up:* You need to enter the IP and not the hostname \
