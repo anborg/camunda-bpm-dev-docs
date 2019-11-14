@@ -4,6 +4,7 @@ Process:
 
 
 Steps:
+- [ ] [Define release version](#define-release-version) (*)
 - [ ] [Make calendar appointments](#make-calendar-appointments) (*)
 - [ ] [Prepare the blogpost](#prepare-the-blogpost) (*)
 - [ ] [Check Preconditions](#check-preconditions) (*)
@@ -19,17 +20,22 @@ Steps:
 - [ ] [Check Docker Images](#check-docker-images) (*)
 - [ ] [Release the blogpost](#release-the-blogpost) (TL, *)
 - [ ] [Publish the Enterprise Page](#publish-the-enterprise-page) (*)
-- [ ] [Inform EE Customers (Mailchimp)](#inform-ee-customer-mailchimp) (IK, MS, TL)
+- [ ] [Inform EE Customers (Mailchimp)](#inform-ee-customer-mailchimp) (RS, MS, TL)
 - [ ] [Social Media Announcements](#social-media-announcements) (*, CM)
 - [ ] [Forum Announcement](#forum) (*)
 - [ ] [Improve this guide](#improve-this-guide) (*)
-- [ ] [Celebrate the release](#celebrate-the-release) (*)
+- [ ] [Celebrate the release](#present-and-celebrate-the-release) (*)
 
 Steps marked with (*) are to be performed by the "Release Manager".
 MS = Michael Schöttes
 TL = Thorben Lindhauer
-IK = Ilias Kourtoudis
+RS = Roman Smirnov
 CM = Charley Mann
+
+# Define release version 
+There are five alpha releases before every minor release named alpha1 to alpha5. Major, minor and patch version are the same as the next minor release. The format of the version is `<MAJOR>.<MINOR>.<PATCH>-<ALPHA>` (e.g. 7.9.0-alpha3, 7.12.0-alpha5, ...). More information can be found in the [release policy](https://docs.camunda.org/enterprise/release-policy/) in the docs.
+
+This guide contains links and filters using placeholders. Please replace the placeholder with the corresponding substitute.
 
 # Make calendar appointments
 
@@ -45,19 +51,19 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 
 > 🕔 book a room for the team where we can hold the presentation. Audience: camundabpm@camunda.com Location: Any room with enough space.
 
-## **Blog post contribution camunda BPM 7.9.0-alpha3**
+## **Blog post contribution**
 > 🕔  set a reminder in the evening of the day before the code freeze so everyone has their blogpost contribution committed.
 > Audience: camundabpm@camunda.com
 
-## **Code Freeze camunda BPM 7.9.0-alpha3**
+## **Code Freeze**
 > 🕔  in the evening of the day before the build will take place until its end. If the release presentation is on Friday, the code freeze can be scheduled for Wednesday evening.
 > Audience: camundabpm@camunda.com
 
-## **Build camunda BPM 7.9.0-alpha3**
+## **Build release**
 > 🕗  as the duration of the build lasts at least two hours, make sure to trigger it early in the morning after the code freeze and keep in mind that it might fail. Make sure you have no other appointments on the day of the release.
 > Audience: camundabpm@camunda.com, sre@camunda.com
 
-## **Celebrate camunda BPM 7.9.0-alpha3**
+## **Celebrate release**
 > Please see [Celebrate The Release](#present-and-celebrate-the-release).
 
 # Prepare the Blogpost
@@ -65,7 +71,7 @@ The release presentation is done remotely via Zoom. Create a Zoom meeting for th
 Goal: Prepare a blogpost skeleton on a remote branch, such that your colleagues can contribute their sections.
 
 
-#### 1. Update the 'master' and create a branch 7.9.0-alpha3 on the [blog repository](https://github.com/camunda/blog.camunda.org).
+#### 1. Update the 'master' and create a branch on the [blog repository](https://github.com/camunda/blog.camunda.org).
 
 ```
 git checkout master
@@ -73,8 +79,9 @@ git pull origin master
 git checkout -b 7.9.0-alpha3
 ```
 
-#### 2. Create a file 'camunda-bpm-790-alpha3-released.md' at /content/post/2017/07/ and push it to the repo.
+#### 2. Create a markdown file and push it to the repo.
 
+The filename must follow the format `camunda-bpm-<release-version-short>-released.md` and must be located in `/content/post/<year>/<month>/`. (e.g. `camunda-bpm-790-aplha3-released.md`, `camunda-bpm-7120-alpha5-released.md`)
 It should contain an introduction (feature overview, release notes, download encouragement) and conclusion (feedback encouragement, outlook). You can use the blogpost of the last alpha release as a blueprint.
 
 ```
@@ -135,12 +142,14 @@ All releases are handled as HUGO page variables in the document header. Add the 
 
 ```
   branches:
-  - branch: "7.9"
+  - branch: "<minor-version>"
     releases:
-    - number: "7.9.0-alpha3"
-      note: "https://blog.camunda.org/post/2017/07/camunda-bpm-790-alpha3-released/"
-      date: "2017.07.31"
+    - number: "<release-version>"
+      note: "<link-to-blog-post>"
+      date: "<release-date>"
 ```
+
+Make sure that you have set the right minor version (e.g. 7.9) and release version (e.g. 7.9.0-alpha3).
 
 # Release the Enterprise Page
 
@@ -191,7 +200,7 @@ Check out compatible versions for the release --> [Spring Boot Version Compatibi
 Change the pom.xml file:
 ```
 <properties>
-  <camunda.version>7.11.0-alpha5-ee</camunda.version>
+  <camunda.version><release-version>-ee</camunda.version>
   <spring.boot.version>2.1.4.RELEASE</spring.boot.version>
   <camunda.spring.boot.starter.version>3.3.0-SNAPSHOT</camunda.spring.boot.starter.version>
 </properties>
@@ -248,7 +257,7 @@ We have several CI jobs which upload artifacts to Maven Central into their stagi
 5. Click on 'Release' at the menu on top of the list. A window will pop up were you can enter a description but it is not necessary. Activate 'Drop repository after release automatically'. Then proceed.
 6. Done.
 
-Hint: It takes about two hours til the artifacts are searchable on Maven Central.
+Hint: It takes about two hours until the artifacts can be found on Maven Central.
 
 # Release the Documentation (Manual)
 
@@ -361,16 +370,19 @@ git push origin master
 
 # Release Javadocs
 
-The javadocs are staged automatically by the release build at http://stage.docs.camunda.org/javadoc/camunda-bpm-platform/7.9 (adjust the version in the URL)
+The javadocs are staged automatically by the release build at ``http://stage.docs.camunda.org/javadoc/camunda-bpm-platform/<minor-version>``
 
 Verify that the correct javadocs are present.
 
 After that, release the javadocs by triggering the following build:
 
-https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(javadoc-camunda-bpm-platform-7.9)/ (adjust the version in the URL)
+``https://ci.cambpm.camunda.cloud/view/Docs/job/docs/job/camunda-docs-release%20(javadoc-camunda-bpm-platform-<minor-version>)/``
 
-Now the new javadocs are available here: https://docs.camunda.org/javadoc/camunda-bpm-platform/7.9/
+Now the new javadocs are available here: ``https://docs.camunda.org/javadoc/camunda-bpm-platform/<minor-version>``
 
+Make sure that you have set the right minor version within all the links. (e.g. 7.9, 7.12)
+
+adjust the version in the URL, e.g. 7.9 or 7.12
 # Release JIRA
 The goal for releasing the JIRA is to add the version you would like to release to issues which have already been closed as well as bug report issues which won't be included in the release because its status is **not closed**. To achieve this, please make sure that the alpha version you would like to release [already exists](https://app.camunda.com/jira/browse/CAM/?selectedTab=com.atlassian.jira.jira-projects-plugin:versions-panel). If not, ask Michael, Roman or Thorben to create this alpha version in JIRA.
 
@@ -379,9 +391,9 @@ To add the release version to the respective "fixVersion" field of all issues wh
 Put the following query in the search box:
 
 ```
-project = CAM AND fixVersion = 7.9.0 AND fixVersion != 7.9.0-alpha3 AND status = Closed AND fixVersion NOT IN(7.9.0-alpha1, 7.9.0-alpha2)
+project = CAM AND fixVersion = <minor-version> AND fixVersion != <release-version> AND status = Closed AND fixVersion NOT IN(<minor-version>-alpha1, <minor-version>-alpha2)
 ```
-Make sure that you have set the right minor version within the query.
+Make sure that you have set the right minor version within the query. (e.g. 7.9.0, 7.12.0)
 
 1. Click on "Tools -> all .. issue(s)".
 2. Select all issues and click on "Next".
@@ -395,8 +407,9 @@ Make sure that you have set the right minor version within the query.
 To add the release version to the respective "affectedVersion" field of all the issues which won't be included in the release, use the following query in the search box:
 
 ```
-project = CAM AND fixVersion = 7.9.0 AND type = "Bug Report" AND status = open
+project = CAM AND fixVersion = <minor-version> AND type = "Bug Report" AND status = open
 ```
+Make sure that you have set the right minor version within the query. (e.g. 7.9.0, 7.12.0)
 
 The further steps are the same as already mentioned.
 
@@ -407,7 +420,7 @@ If you have any questions feel free to approach Thorben. If Thorben is not avail
 Determine all security reports for which fixes have are released and forward them to 1) Thorben 2) Roman. They will then take care of publishing security notices. Find all such issues with the following JIRA query:
 
 ```
-project = CAM AND fixVersion = <released version> AND type = "Security Report"
+project = CAM AND fixVersion = <release-version> AND type = "Security Report"
 ```
 
 # Update the Community Download Page
@@ -436,9 +449,10 @@ In case you don't have permissions for this repository please ask SRE for help.
 
 Verify that the docker images [CE](https://hub.docker.com/r/camunda/camunda-bpm-platform/) and [EE](https://docs.camunda.org/manual/latest/installation/docker/#enterprise-edition) are built.
 
-* CE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ce/
-* EE job successfully run - https://ci.cambpm.camunda.cloud/job/7.11/job/7.11-platform-docker-ee/
+* CE job successfully run - ``https://ci.cambpm.camunda.cloud/job/<minor-version>/job/<minor-version>-platform-docker-ce/``
+* EE job successfully run - ``https://ci.cambpm.camunda.cloud/job/<minor-version>/job/<minor-version>-platform-docker-ee/``
 
+Make sure that you have set the right minor version within the link. (e.g. 7.9, 7.12)
 
 # Release the Blogpost
 
@@ -472,7 +486,7 @@ s c01a668 commit 3
 
 #### 5. Before you publish it ensure that the camunda.com download page is up to date.
 
-Note: The title of the blogpost must be in the following format: Camunda BPM 7.9.0-alpha3 Released
+Note: The title of the blogpost must be in the following format: `Camunda BPM <release-version> Released` (e.g. `Camunda BPM 7.9.0-alpha3 Released`)
 
 #### 6. Publish the blog post by merging the branch with the master:
 
@@ -497,9 +511,9 @@ Hi Support Team,
 
 we have published a new alpha release of Camunda BPM:
 
-* The version is 7.12.0-alpha1
-* The link to the blogpost is https://blog.camunda.com/post/2019/06/camunda-bpm-7120-alpha1-released/
-* The link to the release notes is https://app.camunda.com/jira/secure/ReleaseNote.jspa?projectId=10230&version=15494
+* The version is <release-version>
+* The link to the blogpost is <link-to-blog-post>
+* The link to the release notes is <link-to-release-notes>
 
 Cheers,
 
@@ -518,8 +532,8 @@ Hi Marketing Team,
 
 we have published a new alpha release:
 
-* The version is 7.9.0-alpha3.
-* The link to the blogpost is https://blog.camunda.org/post/2017/07/camunda-bpm-790-alpha3-released
+* The version is <release-version>
+* The link to the blogpost is <link-to-blog-post>
 * The most noteworthy thing about this release is "Support for BPMN Conditional Events"
 * We propose to include the following image (XX Link)
 
@@ -533,17 +547,22 @@ XX
 
 Announce the release in https://forum.camunda.org by posting in the Announcements category linking to the blogpost (adapt elements in bold):
 
-> Title: Camunda BPM **7.9.0-alpha3** released
-> Category: Announcements
-> Text:
-> Hi all,
->
-> Camunda BPM **7.9.0-alpha3** has been released today.
-> Read all about it on our blog: **https://blog.camunda.org/post/2017/07/camunda-bpm-790-alpha3-released/**.
+```
+Title: Camunda BPM <release-version> released
+
+Category: Announcements
+
+Text:
+
+Hi all,
+
+Camunda BPM <release-version> has been released today.
+Read all about it on our blog: <link-to-blog-post>.
+```
 
 # Improve this Guide
 
-If you noticed any errors in the guides, any steps that were left out, please edit this document and keep it up to date.
+If you noticed any errors in the guides, any steps that were left out, please edit this document and keep it up to date. For changes to the release procedure create a ticket in the [CAMTEAM](https://app.camunda.com/jira/browse/CAMTEAM) project and follow the PR base workflow.
 
 Note: For the version numbers used here it is ok to leave older versions in.
 
