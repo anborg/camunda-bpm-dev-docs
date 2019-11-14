@@ -59,17 +59,20 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 1. Go to Portainer [http://portainer.camunda.loc:9000/](http://portainer.camunda.loc:9000/)
 2. Log in with your LDAP credentials
 3. Click on the Endpoint "primary"
+   ![wls step1](./img/autosetup-wls-step1.png)
 
 #### Step 2: Create a database container
 1. Click in the sidebar on "App Templates"
 1. Make sure to enable "Show container templates"
+   ![was step2a](./img/autosetup-was-step2a.png)
 1. Scroll down to the DB2 templates
 2. Click e. g. on the template "DB2 v10.5"
 3. Select a name that allows third-parties to trace the container back to you (e. g. "tassilo-db2-105")
 4. Disable "Enable access control"
 5. Click on "Deploy the Container"
-6. On the containers page, copy exposed *Port* of the published port "50000" and the *Host*
-   * e.g., "cam-int-1" is the hostname and "32774" is the exposed port
+   ![was step2b](./img/autosetup-was-step2b.png)
+6. On the containers page, copy exposed **Port** of the published port "50000" and the **Host** (e.g., "cam-int-1" is the hostname and "32774" is the exposed port)
+  ![was step2c](./img/autosetup-was-step2c.png)
 
 #### Step 3: Create the server container
 1. Click in the sidebar on "App Templates"
@@ -83,8 +86,10 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
    * Add the database name (it is usually "engine")
 5. Disable "Enable access control"
 6. Click on "Deploy the Stack"
+   ![was step3a](./img/autosetup-was-step3a.png)
 7. On the stacks page, open your stack by clicking on the name
 8. In the "Services" tile copy the link of the published port "9080" (e. g. http://portainer.camunda.loc:30086/)
+   ![was step3b](./img/autosetup-was-step3b.png)
 9. Wait up to five minutes until the server has been setup
 10. If everything was set up successfully, you should see the login form when accessing the Camunda BPM Webapps \
     http://portainer.camunda.loc:30086/camunda \
