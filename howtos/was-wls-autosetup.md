@@ -5,6 +5,10 @@ When using these templates, no manual configuration effort is necessary.
 
 This guide documents noteworthy hints to use auto-setup containers on [portainer](http://portainer.camunda.loc:9000/).
 
+## Table of Contents
+* [Oracle WebLogic 12R2](#oracle-weblogic-12r2)
+* [IBM Websphere 9.0](#ibm-websphere-90)
+
 ## Oracle WebLogic 12R2
 ### Supported Databases
 * Oracle 11g / 12c / 18c
