@@ -84,9 +84,9 @@ This guide documents noteworthy hints to use auto-setup containers on [portainer
 3. Select a name that allows third-parties to trace the container back to you (e. g. "tassilo-was")
 4. Add the database information
    * Add the database hostname and the port of your container
-     * *Heads-up:* You need to enter the IP and not the hostname \
-       "cam-int-1" => "192.168.0.11" \
-       "cam-int-2" => "192.168.0.21"
+     * *Heads-up:* For DB2 you need to add the suffix `.camunda.loc` to the host name  \
+       "cam-int-1" => "cam-int-1.camunda.loc" \
+       "cam-int-2" => "cam-int-2.camunda.loc"
    * Add the database name (it is usually "engine")
 5. Disable "Enable access control"
 6. Click on "Deploy the Stack"
