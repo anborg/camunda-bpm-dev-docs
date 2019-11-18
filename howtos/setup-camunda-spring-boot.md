@@ -100,7 +100,29 @@ spring:
     username: camunda
     password: camunda
 ```
+### Oracle
+#####  pom.xml
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-jdbc</artifactId>
+    <version>${spring.boot.version}</version>
+</dependency>
+   
+<dependency>
+   <groupId>com.oracle.ojdbc</groupId>
+   <artifactId>ojdbc8</artifactId>
+</dependency>
+```
+#####  Application.yaml
 
+```yaml
+spring.datasource:
+   url: jdbc:oracle:thin:@portainer.camunda.loc:30155:ORCL
+   username: camunda
+   password: camunda
+   driver-class-name: oracle.jdbc.OracleDriver
+```
 ## Enable the REST API
 
 Follow the instructions on our [docs](https://docs.camunda.org/manual/develop/user-guide/spring-boot-integration/rest-api/) to enable the REST API. To change the REST API path add the following configuration in the appliaction.yaml file:
