@@ -101,9 +101,10 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
 2. Create a (Google/Airtable) spreadsheet to be used for keeping track of the testing process (you can use [this spreadsheet](https://docs.google.com/spreadsheets/d/1Z_f7zX2ikmiqxq6i3a2N1bBcSPTj9SYdWxT9jZm3fx0/edit?usp=sharing) as a template)
   * The spreadsheet should include all the features that need to be tested, feature documentation and implementer name
   * The spreadsheet should include an estimated effort (small, medium, large) and all test cases should be divided equally to all team members, e.g. by using round-robin on the different effort levels respecting that the implementer and reviewer should not test again
-  * The spreadsheet should include all the possible variations for a testing environment setup (App Server + DB + JDK + OS + Browser)
+  * The spreadsheet should include all combinations of environments that should be testetd. Those environments should also be assigned to topics as recommended environments (consider those in the assignment of the topics to testers as well, so that testers have a reasonable amount of environments to set up for their topics).
 3. Check if there are any new supported environments (ex. new Database Versions) and if they are available for testing through [Portainer](https://hq2.camunda.com/portainer/#/templates/).
-  - If there is an environment missing, ask SRE to provide it.
+  * If there is an environment missing, ask SRE to provide it.
+4. Validate the assumptions for the test plan with the development team (are the effort estimations correct, are testers fine with their assigned topics, are all necessary features included). This can be done in a separate meeting or by individual feedback.
 
 ## Build a Release Candidate
 
