@@ -98,7 +98,7 @@ Ask Ulrike to create the new license book. When received, put it to [`distro/lic
 
 Set a meeting with QA to prepare a test plan for the manual testing of the release:
 1. Pick which features to test by looking at the [Confluence Roadmap list](https://app.camunda.com/confluence/display/camBPM/Roadmap+Camunda+BPM)
-2. Create a (Google/Airtable) spreadsheet to be used for keeping track of the testing process (you can use [this spreadsheet](https://docs.google.com/spreadsheets/d/1D9XF5Y84qeB-uFGOo8tnDbXHPJx-aNzsTpWprdfIpiI/edit?usp=sharing) as a template)
+2. Create a (Google/Airtable) spreadsheet to be used for keeping track of the testing process (you can use [this spreadsheet](https://docs.google.com/spreadsheets/d/1Z_f7zX2ikmiqxq6i3a2N1bBcSPTj9SYdWxT9jZm3fx0/edit?usp=sharing) as a template)
   * The spreadsheet should include all the features that need to be tested, feature documentation and implementer name
   * The spreadsheet should include an estimated effort (small, medium, large) and all test cases should be divided equally to all team members, e.g. by using round-robin on the different effort levels respecting that the implementer and reviewer should not test again
   * The spreadsheet should include all the possible variations for a testing environment setup (App Server + DB + JDK + OS + Browser)
