@@ -37,6 +37,8 @@ These tasks can be done within the two weeks before the release:
 
 - [ ] [Request the new license book from Ulrike](#request-the-new-license-book) (EM)
 - [ ] [Prepare testing plan](#prepare-test-plan) (* + QA + SRE)
+- [ ] [Build a Release Candidate](#build-a-release-candidate) (*)
+- [ ] [Test standalone webapps](#test-standalone-webapps) (*)
 - [ ] [Adjust and migrate Getting Started guides](#adjust-and-migrate-getting-started-guides) (*)
 - [ ] [Adjust and migrate Examples](#adjust-and-migrate-examples) (*)
 - [ ] [Adjust and migrate unit testing template](#adjust-and-migrate-unit-testing-template) (*)
@@ -53,7 +55,6 @@ These steps can be done a couple of days before the release:
 - [ ] [Check Preconditions](#check-preconditions) (*)
 - [ ] [Trigger the release build](#trigger-the-release-build) (*)
 - [ ] [Test Release](#test-release) (* + QA)
-- [ ] [Test standalone webapps](#test-standalone-webapps) (*)
 - [ ] [Stage new version of the docs](#stage-new-version-of-the-docs) (*)
 - [ ] [Create docs stage and release jobs for new branch](#create-docs-stage-and-release-jobs-for-new-branch) (SRE)
 - [ ] [Stage Enterprise Download Page](#stage-enterprise-download-page) (*, QA)
@@ -99,9 +100,65 @@ Set a meeting with QA to prepare a test plan for the manual testing of the relea
 1. Pick which features to test by looking at the [Confluence Roadmap list](https://app.camunda.com/confluence/display/camBPM/Roadmap+Camunda+BPM)
 2. Create a (Google/Airtable) spreadsheet to be used for keeping track of the testing process (you can use [this spreadsheet](https://docs.google.com/spreadsheets/d/1D9XF5Y84qeB-uFGOo8tnDbXHPJx-aNzsTpWprdfIpiI/edit?usp=sharing) as a template)
   * The spreadsheet should include all the features that need to be tested, feature documentation and implementer name
+  * The spreadsheet should include an estimated effort (small, medium, large) and all test cases should be divided equally to all team members, e.g. by using round-robin on the different effort levels respecting that the implementer and reviewer should not test again
   * The spreadsheet should include all the possible variations for a testing environment setup (App Server + DB + JDK + OS + Browser)
 3. Check if there are any new supported environments (ex. new Database Versions) and if they are available for testing through [Portainer](https://hq2.camunda.com/portainer/#/templates/).
   - If there is an environment missing, ask SRE to provide it.
+
+## Build a Release Candidate
+
+Use the [Alpha Release Guide](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md) and perform the following steps to create a release candidate:
+1. [Check Preconditions](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#check-preconditions)
+1. [Trigger the release build](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#trigger-the-release-build)
+1. [Update the Enterprise Download Page](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#update-the-enterprise-download-page)
+1. Test the release candidate by using the [test plan](#prepare-test-plan) and [Test standalone webapps](#test-standalone-webapps)
+1. [Release Maven Central](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-maven-central)
+1. [Release JIRA](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#release-jira)
+
+## Test standalone webapps
+
+You have to download the CE standalone webapps
+([`camunda-webapp-SERVER-standalone-VERSION.war`](https://camunda.org/release/camunda-bpm/))
+and the EE standalone webapps
+([`camunda-webapp-ee-SERVER-standalone-VERSION-ee.war`](https://camunda.org/enterprise-release/camunda-bpm/)).
+
+**Note:** There is no separate standalone webapp for wildfly, use the jboss one
+for testing.
+
+To test the standalone webapp you need a vanilla version of the application
+servers (without camunda installed). You can download the vanilla distros
+from our nexus:
+
+- [Tomcat](https://app.camunda.com/nexus/content/groups/public/org/apache/tomcat/tomcat/)
+- [JBoss](https://app.camunda.com/nexus/content/groups/public/org/jboss/as/jboss-as-dist/)
+- [Widlfly](https://app.camunda.com/nexus/content/groups/public/org/wildfly/wildfly-dist/)
+
+The versions to use can be found in the current [parent
+pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/master/parent/pom.xml#L31-L37).
+
+To test websphere and weblogic I would suggest to ask SRE to spin up a docker image in the HQ for testing. An
+alternative would be the developer VM.
+
+To deploy the standalone webapp follow the [installation
+guide](http://stage.docs.camunda.org/manual/develop/installation/standalone-webapplication/#deploy). Normally
+you have to copy the war file to the corresponding webapps folder of the
+application server or use the web console for websphere and weblogic.
+
+You can configure the process engine and database by editing the
+`WEB-INF/applicationContext.xml` in the war file, if you want to test something
+special.
+
+After starting the standalone webapp test the webapps by starting some
+processes, completing task, adding users and so one. Also focus on new
+features introduced in the upcoming release.
+
+**Note:** The job executor is disabled in the standalone webapps, which means
+no jobs will be executed. So for example batches will not be executed either.
+
+After finishing the test compare the process engine configuration in
+`WEB-INF/applicationContext.xml` of the war file with the configuration
+of the process engine shipped with the distribution. In general the engines
+should be configure identical.
 
 ## Adjust and migrate Getting Started guides
 
@@ -216,7 +273,7 @@ Wait for the following jobs to turn green before continuing with the next step:
 
 ## Test Release
 
-Let the team and QA test the release. Share the test plan spreadsheet with the team. If everything is satisfying with the release, send an email to camundabpm@camunda.com:
+Let the team and QA test the release with the [Standard Regression Test](https://github.com/camunda/camunda-bpm-dev-docs/blob/master/releases/Performing-an-Alpha-Release.md#standard-regression-test) and paying attention to all changes since the release candidate. If everything is satisfying with the release, send an email to camundabpm@camunda.com:
 
 ```
 Hey,
@@ -224,51 +281,6 @@ Hey,
 the release test passed, you can commit to master again :)
 
 ```
-
-## Test standalone webapps
-
-You have to download the CE standalone webapps
-([`camunda-webapp-SERVER-standalone-VERSION.war`](https://camunda.org/release/camunda-bpm/))
-and the EE standalone webapps
-([`camunda-webapp-ee-SERVER-standalone-VERSION-ee.war`](https://camunda.org/enterprise-release/camunda-bpm/)).
-
-**Note:** There is no separate standalone webapp for wildfly, use the jboss one
-for testing.
-
-To test the standalone webapp you need a vanilla version of the application
-servers (without camunda installed). You can download the vanilla distros
-from our nexus:
-
-- [Tomcat](https://app.camunda.com/nexus/content/groups/public/org/apache/tomcat/tomcat/)
-- [JBoss](https://app.camunda.com/nexus/content/groups/public/org/jboss/as/jboss-as-dist/)
-- [Widlfly](https://app.camunda.com/nexus/content/groups/public/org/wildfly/wildfly-dist/)
-
-The versions to use can be found in the current [parent
-pom.xml](https://github.com/camunda/camunda-bpm-platform/blob/master/parent/pom.xml#L31-L37).
-
-To test websphere and weblogic I would suggest to ask SRE to spin up a docker image in the HQ for testing. An
-alternative would be the developer VM.
-
-To deploy the standalone webapp follow the [installation
-guide](http://stage.docs.camunda.org/manual/develop/installation/standalone-webapplication/#deploy). Normally
-you have to copy the war file to the corresponding webapps folder of the
-application server or use the web console for websphere and weblogic.
-
-You can configure the process engine and database by editing the
-`WEB-INF/applicationContext.xml` in the war file, if you want to test something
-special.
-
-After starting the standalone webapp test the webapps by starting some
-processes, completing task, adding users and so one. Also focus on new
-features introduced in the upcoming release.
-
-**Note:** The job executor is disabled in the standalone webapps, which means
-no jobs will be executed. So for example batches will not be executed either.
-
-After finishing the test compare the process engine configuration in
-`WEB-INF/applicationContext.xml` of the war file with the configuration
-of the process engine shipped with the distribution. In general the engines
-should be configure identical.
 
 ## Stage new version of the docs
 
