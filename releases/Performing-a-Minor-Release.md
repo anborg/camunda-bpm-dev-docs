@@ -57,6 +57,7 @@ These steps can be done a couple of days before the release:
 - [ ] [Test Release](#test-release) (* + QA)
 - [ ] [Stage new version of the docs](#stage-new-version-of-the-docs) (*)
 - [ ] [Create docs stage and release jobs for new branch](#create-docs-stage-and-release-jobs-for-new-branch) (SRE)
+- [ ] [Adjust docs with new version](#adjust-docs-with-new-version) (*)
 - [ ] [Stage Enterprise Download Page](#stage-enterprise-download-page) (*, QA)
 - [ ] [Stage Community Download Page](#stage-community-download-page) (*)
 
@@ -373,9 +374,9 @@ After drinking 1 espresso, the new jobs should now appear on https://ci.cambpm.c
 
 Trigger `camunda-docs-manual-stage (7.12, 7.12)` and check the result at http://stage.docs.camunda.org/manual/7.12/
 
-## Adjust docs with new verstion (*)
+## Adjust docs with new verstion
 
-### Release new docs version as latest (*)
+### Release new docs version as latest
 
 You also need to release the new version as "latest".
 
@@ -417,7 +418,7 @@ git commit -a -m "chore(release): release 7.12 as latest"
 git push origin latest --force
 ```
 
-### Add new version of the manual to all other versions (*)
+### Add new version of the manual to all other versions
 
 Next we need to make sure the user can select the new version in the version select boxes on all other branches.
 This procedure is different for hugo and docpad based branches.
@@ -601,7 +602,7 @@ git push origin 7.12
 
 Hint: As mentioned before, you need to replace all the occurrences of the string `7.11` with `7.12`.
 
-### Stage Enterprise Download Page
+## Stage Enterprise Download Page
 
 The new minor version needs to be added to the enterprise download page.
 Perform the following edits:
@@ -640,7 +641,7 @@ git commit -a -m "chore(release): add 7.12.0 to download page"
 git push origin master
 ```
 
-### Stage Community Download Page
+## Stage Community Download Page
 
 Repository: [camunda.com-new](https://github.com/camunda/camunda.com-new)
 You need to adjust [releases.json](https://github.com/camunda/camunda.com-new/blob/master/data/releases.json) and check your change on [stage](https://app.camunda.com/jenkins/view/All/job/stage.camunda.com-new%20(master)/).
