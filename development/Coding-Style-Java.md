@@ -76,6 +76,7 @@ return new MyClass() {
 ### Comments
 
 * Do not push `TODO` or `FIXME` comments to master. Instead, either fix it immediately or create a JIRA issue that describes the user impact.
+* Add Javadoc comments to new `ProcessEngineConfigurationImpl` and `ProcessEngineConfiguration` properties to make the purpose of the property visible to users and developers without the need of diving into code.
 
 ### Specifics
 
@@ -84,6 +85,7 @@ return new MyClass() {
 ## Best Practices:
 
 * Within the same source file, the ordering of annotations should be consistent
+* Consider writing Javadoc for non-trivial code that you encounter. This can be new code or already existing code that you inspected for a current task.
 
 ### Need exact proposal:
 
