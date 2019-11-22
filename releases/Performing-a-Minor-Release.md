@@ -374,7 +374,7 @@ After drinking 1 espresso, the new jobs should now appear on https://ci.cambpm.c
 
 Trigger `camunda-docs-manual-stage (7.12, 7.12)` and check the result at http://stage.docs.camunda.org/manual/7.12/
 
-## Adjust docs with new verstion
+## Adjust docs with new version
 
 ### Release new docs version as latest
 
