@@ -485,7 +485,7 @@ git push origin <branch-name>
 
 ### Adjust Redirects / URL rewrites
 
-Next we need to adjust the URL rewrites. Please note the examples are given with 7.11 release version and 7.12 next development. First for stage. Go into the repository `camunda-docs-static`:
+Next we need to adjust the URL rewrites. First for stage. Go into the repository `camunda-docs-static`:
 
 ```diff
 --- a/config/stage/.htaccess
@@ -494,9 +494,9 @@ Next we need to adjust the URL rewrites. Please note the examples are given with
  RewriteRule ^latest/api-references/java/ /manual/7.3/reference/javadoc/
 
  # Javadoc
--RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11-SNAPSHOT [R=307,L]
-+RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12-SNAPSHOT [R=307,L]
- RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
+-RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12-SNAPSHOT [R=307,L]
++RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13-SNAPSHOT [R=307,L]
+ RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
 ```
 
@@ -523,24 +523,24 @@ Perform the following edits:
 
 
  # Javadoc
--RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L] # live doesn't have -SNAPSHOT
-+RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
- RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.11 [R=307,L]
+-RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L] # live doesn't have -SNAPSHOT
++RewriteRule ^manual/develop/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.13 [R=307,L] # live doesn't have -SNAPSHOT
+ RewriteRule ^manual/latest/reference/javadoc/$ /javadoc/camunda-bpm-platform/7.12 [R=307,L]
  RewriteRule ^manual/([^/]+)/reference/javadoc/$ /javadoc/camunda-bpm-platform/$1 [R=307,L]
 
  # manual without version
 -RewriteRule ^manual/?$ /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/?$ /manual/7.12/ [R=307,L]
 
--RewriteCond %{REQUEST_URI} ^/manual((?!7.10/)[^/]+)
-+RewriteCond %{REQUEST_URI} ^/manual((?!7.11/)[^/]+)
+-RewriteCond %{REQUEST_URI} ^/manual((?!7.11/)[^/]+)
++RewriteCond %{REQUEST_URI} ^/manual((?!7.12/)[^/]+)
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteRule ^manual/(.*) /manual/7.11/ [R=307,L]
 +RewriteRule ^manual/(.*) /manual/7.12/ [R=307,L]
 
-- # Redirect /manual/X to /manual/7.11/X if folder X does not exist but 7.10/X does
--RewriteCond %{REQUEST_URI} ^/manual/((?!7.10/)[^/]+)
-+ # Redirect /manual/X to /manual/7.12/X if folder X does not exist but 7.11/X does
+- # Redirect /manual/X to /manual/7.11/X if folder X does not exist but 7.11/X does
+-RewriteCond %{REQUEST_URI} ^/manual/((?!7.11/)[^/]+)
++ # Redirect /manual/X to /manual/7.12/X if folder X does not exist but 7.12/X does
 +RewriteCond %{REQUEST_URI} ^/manual/((?!7.12/)[^/]+)
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteCond %{DOCUMENT_ROOT}/manual/7.11/%1 -d
@@ -548,9 +548,9 @@ Perform the following edits:
 +RewriteCond %{DOCUMENT_ROOT}/manual/7.12/%1 -d
 +RewriteRule ^manual/(.*) /manual/7.12/$1 [R=307,L]
 
--# Redirect /manual/X/Y to /manual/7.11/Y if folder X does not exist but 7.10/Y does
+-# Redirect /manual/X/Y to /manual/7.11/Y if folder X does not exist but 7.11/Y does
 -RewriteCond %{REQUEST_URI} ^/manual/((?!7.11/?)[^/]+)(/[^/]+)?
-+# Redirect /manual/X/Y to /manual/7.12/Y if folder X does not exist but 7.11/Y does
++# Redirect /manual/X/Y to /manual/7.12/Y if folder X does not exist but 7.12/Y does
 +RewriteCond %{REQUEST_URI} ^/manual/((?!7.12/?)[^/]+)(/[^/]+)?
  RewriteCond %{DOCUMENT_ROOT}/manual/%1 !-d
 -RewriteCond %{DOCUMENT_ROOT}/manual/7.11%2 -d
