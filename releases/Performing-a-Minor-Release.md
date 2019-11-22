@@ -455,8 +455,7 @@ On master, we also bump the version alias to the next minor version:
 +    versionAlias: "7.13"
      versions:
        - "latest"
-+      - "7.13"
-       - "7.12"
++      - "7.12"
        - "7.11"
 ```
 
