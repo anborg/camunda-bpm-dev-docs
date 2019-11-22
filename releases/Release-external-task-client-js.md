@@ -30,7 +30,7 @@ Template:
 4. Commit, Tag and push repository
  ```
  git commit -a -m "chore(release): release version 1.x.x"
- git tag v1.x.x.
+ git tag v1.x.x
  git push origin master --tags
  ```
 4. Copy the release notes from step 1 to the newly created [github release](https://github.com/camunda/camunda-external-task-client-js/releases)
@@ -55,6 +55,11 @@ Set the Version on master to the next-highest version snapshot, e.g.
  "name": "camunda-external-task-client-js",
  "main": "index.js",
 ```
+
+ ```
+ git commit -a -m "chore(release): set next development verion"
+ git push origin master
+ ```
 
 ---
 
