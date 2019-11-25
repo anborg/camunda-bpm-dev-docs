@@ -421,7 +421,7 @@ git push origin latest --force
 ### Add new version of the manual to all other versions
 
 Next we need to make sure the user can select the new version in the version select boxes on all other branches.
-This procedure is different for hugo and docpad based branches.
+For docpad based branches (7.0 - 7.3), this information will not be updated.
 For hugo based branches (master, 7.4+) this means:
 
 ```diff
@@ -462,25 +462,6 @@ On master, we also bump the version alias to the next minor version:
 ```sh
 git commit -a -m "chore(release): add 7.12, bump to 7.13 "
 git push origin master
-```
-
-For docpad based branches (7.0 - 7.3), this means:
-
-```diff
---- a/site/docpad.conf.js
-+++ b/site/docpad.conf.js
-@@ -40,6 +40,7 @@ module.exports = {
-         current: process.env.DOCS_VERSION || '7.3',
-         all: [
-           { id: 'latest', name: 'Latest' },
-+          { id: '7.12', name: '7.12 (stable)' },
-           { id: '7.11', name: '7.11 (stable)' },
-           { id: '7.10', name: '7.10 (stable)' },
-```
-
-```sh
-git commit -a -m "chore(release): add 7.12"
-git push origin <branch-name>
 ```
 
 ### Adjust Redirects / URL rewrites
